@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://apexpeng.github.io/"/>
-  <updated>2021-05-15T12:24:42.520Z</updated>
+  <updated>2021-05-15T14:50:17.747Z</updated>
   <id>https://apexpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,106 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Crypto -- Introduction</title>
+    <link href="https://apexpeng.github.io/2021/05/23/HTTPS_Openssl/"/>
+    <id>https://apexpeng.github.io/2021/05/23/HTTPS_Openssl/</id>
+    <published>2021-05-23T09:25:09.786Z</published>
+    <updated>2021-05-15T14:50:17.747Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/categories/HTTPS/"/>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/tags/HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Crypto -- Introduction</title>
+    <link href="https://apexpeng.github.io/2021/05/23/HTTPS_Nginx/"/>
+    <id>https://apexpeng.github.io/2021/05/23/HTTPS_Nginx/</id>
+    <published>2021-05-23T09:25:09.784Z</published>
+    <updated>2021-05-15T14:50:20.656Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/categories/HTTPS/"/>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/tags/HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Crypto -- Introduction</title>
+    <link href="https://apexpeng.github.io/2021/05/23/HTTPS_Intro/"/>
+    <id>https://apexpeng.github.io/2021/05/23/HTTPS_Intro/</id>
+    <published>2021-05-23T09:25:09.782Z</published>
+    <updated>2021-05-15T14:50:13.339Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/categories/HTTPS/"/>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/tags/HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Crypto -- Introduction</title>
+    <link href="https://apexpeng.github.io/2021/05/23/HTTPS_engine/"/>
+    <id>https://apexpeng.github.io/2021/05/23/HTTPS_engine/</id>
+    <published>2021-05-23T09:25:09.780Z</published>
+    <updated>2021-05-15T14:50:11.455Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/categories/HTTPS/"/>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/tags/HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Crypto -- Introduction</title>
+    <link href="https://apexpeng.github.io/2021/05/23/HTTPS_CY_intro/"/>
+    <id>https://apexpeng.github.io/2021/05/23/HTTPS_CY_intro/</id>
+    <published>2021-05-23T09:25:09.778Z</published>
+    <updated>2021-05-15T14:50:14.721Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/categories/HTTPS/"/>
+    
+    
+      <category term="HTTPS" scheme="https://apexpeng.github.io/tags/HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Compression -- Introduction</title>
-    <link href="https://apexpeng.github.io/2021/05/15/DC_Intro/"/>
-    <id>https://apexpeng.github.io/2021/05/15/DC_Intro/</id>
-    <published>2021-05-15T12:23:25.036Z</published>
-    <updated>2021-05-15T12:24:42.520Z</updated>
+    <link href="https://apexpeng.github.io/2021/05/23/DC_Intro/"/>
+    <id>https://apexpeng.github.io/2021/05/23/DC_Intro/</id>
+    <published>2021-05-23T09:25:09.776Z</published>
+    <updated>2021-05-15T14:21:26.717Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Compression-Decompression"><a href="#Compression-Decompression" class="headerlink" title="Compression/Decompression"></a>Compression/Decompression</h1>]]></content>
     
@@ -43,30 +138,51 @@
   </entry>
   
   <entry>
-    <title>PASS N2 -- Words of N5 (Verb)　</title>
-    <link href="https://apexpeng.github.io/2020/08/15/n5-words-verb/"/>
-    <id>https://apexpeng.github.io/2020/08/15/n5-words-verb/</id>
-    <published>2020-08-15T12:34:51.000Z</published>
-    <updated>2021-05-15T13:53:12.544Z</updated>
-    
-    <content type="html"><![CDATA[<p>Japanese verbs are roughly divided into three groups according to their dictionary form (basic form).</p><ul><li><p>Group 1 verbs end with “u”. This group is also called Consonant-stem verbs or Godan-doushi (Godan verbs).</p></li><li><p>Group 2 verbs end with either “iru” or “eru”. This group is also called Vowel-stem-verbs or Ichidan-doushi (Ichidan verbs).</p></li><li><p>The last Group contains two irregular verbs, kuru (to come) and suru (to do).</p></li></ul><h1 id="U-Ending-Verbs-Godan-doushi"><a href="#U-Ending-Verbs-Godan-doushi" class="headerlink" title="U Ending Verbs / Godan-doushi"></a>U Ending Verbs / Godan-doushi</h1><table><thead><tr><th>番号</th><th>単語</th><th>漢字</th><th></th><th></th><th></th><th></th><th>意味</th></tr></thead><tbody><tr><td>1</td><td>いる</td><td>入る</td><td>います</td><td>いて</td><td>いない</td><td>いた</td><td>Enter</td></tr><tr><td>2</td><td>あびる</td><td>浴びる</td><td>浴びます</td><td>浴びて</td><td>浴びない</td><td>浴びた</td><td>Shower</td></tr><tr><td>3</td><td>おきる</td><td>起きる</td><td>起きます</td><td>起きて</td><td>起きない</td><td>起きた</td><td>Happen</td></tr><tr><td>4</td><td>おりる</td><td>降りる</td><td>降ります</td><td>降りて</td><td>降りない</td><td>降りた</td><td>Get off</td></tr><tr><td>5</td><td>かりる</td><td>借りる</td><td>借ります</td><td>借りて</td><td>借りない</td><td>借りた</td><td>To borrow</td></tr><tr><td>6</td><td>きる</td><td>着る</td><td>着ます</td><td>着て</td><td>着ない</td><td>着た</td><td>To wear</td></tr><tr><td>7</td><td>すぎる</td><td>過ぎる</td><td>過ぎます</td><td>過ぎて</td><td>過ぎない</td><td>過ぎた</td><td>Go across</td></tr><tr><td>8</td><td>できる</td><td>できる</td><td>できます</td><td>できて</td><td>できない</td><td>できた</td><td>Be good at</td></tr><tr><td>9</td><td>あける</td><td>開ける</td><td>開けます</td><td>開けて</td><td>開けない</td><td>開けた</td><td>Open</td></tr><tr><td>10</td><td>あげる</td><td>あげる</td><td>あげます</td><td>あげて</td><td>あげない</td><td>あげた</td><td>To raise</td></tr><tr><td>11</td><td>あつめる</td><td>集める</td><td>集めます</td><td>集めて</td><td>集めない</td><td>集めた</td><td>Collect</td></tr><tr><td>12</td><td>あわてる</td><td>慌てる</td><td>慌てます</td><td>慌てて</td><td>慌てない</td><td>慌てた</td><td>To hurry</td></tr><tr><td>13</td><td>うまれる</td><td>生まれる</td><td>生まれます</td><td>生まれて</td><td>生まれない</td><td>生まれた</td><td>Birth</td></tr><tr><td>14</td><td>おくれる</td><td>遅れる</td><td>遅れます</td><td>遅れて</td><td>遅れまい</td><td>遅れた</td><td>Be late</td></tr><tr><td>15</td><td>おしえる</td><td>教える</td><td>教えます</td><td>教えて</td><td>教えない</td><td>教えた</td><td>Teach</td></tr><tr><td>16</td><td>かける</td><td>かける</td><td>かけます</td><td>かけて</td><td>かけない</td><td>かけた</td><td>be going to do</td></tr><tr><td>17</td><td>かたづける</td><td>片付ける</td><td>片付けます</td><td>片付けて</td><td>片付けない</td><td>片付けた</td><td>To trim</td></tr><tr><td>18</td><td>かんがえる</td><td>考える</td><td>考えます</td><td>考えて</td><td>考えない</td><td>考えた</td><td>Think</td></tr><tr><td>19</td><td>きめる</td><td>決める</td><td>決めます</td><td>決めて</td><td>決めない</td><td>決めた</td><td>Decide</td></tr><tr><td>20</td><td>しめる</td><td>閉める</td><td>閉めます</td><td>閉めて</td><td>閉めない</td><td>閉めた</td><td>Close</td></tr><tr><td>21</td><td>しらせる</td><td>知らせる</td><td>知らせます</td><td>知らせて</td><td>知らせない</td><td>知らせた</td><td>Inform</td></tr><tr><td>22</td><td>しらべる</td><td>調べる</td><td>調べます</td><td>調べて</td><td>調べない</td><td>調べた</td><td>Examine</td></tr><tr><td>23</td><td>すてる</td><td>捨てる</td><td>捨てます</td><td>捨てて</td><td>捨てない</td><td>捨てた</td><td>Abandon</td></tr><tr><td>24</td><td>たしかめる</td><td>確かめる</td><td>確かめます</td><td>確かめて</td><td>確かめない</td><td>確かめた</td><td>Confirm</td></tr><tr><td>25</td><td>たべる</td><td>食べる</td><td>食べます</td><td>食べて</td><td>食べない</td><td>食べた</td><td>Eat</td></tr><tr><td>26</td><td>つかれる</td><td>疲れる</td><td>疲れます</td><td>疲れて</td><td>疲れない</td><td>疲れた</td><td>Get tired</td></tr><tr><td>27</td><td>つける</td><td>つける</td><td>つけます</td><td>つけて</td><td>つけない</td><td>つけた</td><td></td></tr><tr><td>28</td><td>つたえる</td><td>伝える</td><td>伝えます</td><td>伝えて</td><td>伝えない</td><td>伝えた</td><td>Transmit</td></tr><tr><td>29</td><td>でかける</td><td>出かける</td><td>出かけます</td><td>出かけて</td><td>出かけない</td><td>出かけた</td><td>Go out</td></tr><tr><td>30</td><td>でる</td><td>出る</td><td>出ます</td><td>出て</td><td>出ない</td><td>出た</td><td>Come out</td></tr><tr><td>31</td><td>とめる</td><td>止める</td><td>止めます</td><td>止めて</td><td>止めない</td><td>止めた</td><td>To stop</td></tr><tr><td>32</td><td>ねる</td><td>寝る</td><td>寝ます</td><td>寝て</td><td>寝ない</td><td>寝た</td><td>Sleep</td></tr><tr><td>33</td><td>はじめる</td><td>始める</td><td>始めます</td><td>始めて</td><td>始めない</td><td>始めた</td><td>Begin</td></tr><tr><td>34</td><td>みせる</td><td>見せる</td><td>見せます</td><td>見せて</td><td>見せない</td><td>見せた</td><td>Show</td></tr><tr><td>35</td><td>みる</td><td>見る</td><td>見ます</td><td>見て</td><td>見ない</td><td>見た</td><td>Look</td></tr><tr><td>36</td><td>やめる</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>37</td><td>わすれる</td><td>忘れる</td><td>忘れます</td><td>忘れて</td><td>忘れない</td><td>忘れた</td><td>Forget</td></tr></tbody></table><h1 id="Vowel-stem-verbs-Ichidan-doushi-Ichidan-verbs"><a href="#Vowel-stem-verbs-Ichidan-doushi-Ichidan-verbs" class="headerlink" title="Vowel-stem-verbs / Ichidan-doushi (Ichidan verbs)"></a>Vowel-stem-verbs / Ichidan-doushi (Ichidan verbs)</h1><table><thead><tr><th>番号</th><th>単語</th><th>漢字</th><th></th><th></th><th></th><th></th><th>意味</th></tr></thead><tbody><tr><td>1</td><td>あう</td><td>会う</td><td>会います</td><td>会って</td><td>会わない</td><td>会った</td><td>Meet</td></tr><tr><td>2</td><td>あく</td><td></td><td>開きます</td><td>開いて</td><td>開かない</td><td>開いた</td><td>Open</td></tr><tr><td>3</td><td>あそぶ</td><td>遊ぶ</td><td>遊びます</td><td>遊んで</td><td>遊ばない</td><td>遊んだ</td><td>Play</td></tr><tr><td>4</td><td>あらう</td><td>洗う</td><td>洗います</td><td>洗って</td><td>洗わない</td><td>洗った</td><td>Wash</td></tr><tr><td>5</td><td>ある</td><td>有る</td><td>有ります</td><td>有って</td><td>ない</td><td>有った</td><td>Exist</td></tr><tr><td>6</td><td>あるく</td><td>歩く</td><td>歩きます</td><td>歩いて</td><td>歩かない</td><td>歩いた</td><td>Walk</td></tr><tr><td>7</td><td>いう</td><td>言う</td><td>言います</td><td>言って</td><td>言わない</td><td>言った</td><td>Say</td></tr><tr><td>8</td><td>いく</td><td>行く</td><td>行きます</td><td>行って</td><td>行かない</td><td>行った</td><td>Go</td></tr><tr><td>9</td><td>いそぐ</td><td>急ぐ</td><td>急ぎます</td><td>急いて</td><td>急がない</td><td>急いだ</td><td>Hurry up</td></tr><tr><td>10</td><td>うたう</td><td>歌う</td><td>歌います</td><td>歌って</td><td>歌わない</td><td>歌った</td><td>Sing</td></tr><tr><td>11</td><td>うる</td><td>売る</td><td>売ります</td><td>売って</td><td>売らない</td><td>売った</td><td>Sell</td></tr><tr><td>12</td><td>えらぶ</td><td>選ぶ</td><td>選びます</td><td>選んで</td><td>選ばない</td><td>選んだ</td><td>Choose</td></tr><tr><td>13</td><td>おく</td><td>置く</td><td>置きます</td><td>置いて</td><td>置かない</td><td>置いた</td><td>Place</td></tr><tr><td>14</td><td>おくる</td><td>送る</td><td>送ります</td><td>送って</td><td>送らない</td><td>送った</td><td>Send</td></tr><tr><td>15</td><td>おとす</td><td>落とす</td><td>落とします</td><td>落として</td><td>落とさない</td><td>落とした</td><td>Drop</td></tr><tr><td>16</td><td>おもう</td><td>思う</td><td>思います</td><td>思って</td><td>思わない</td><td>思った</td><td>I think</td></tr><tr><td>17</td><td>およぐ</td><td>泳ぐ</td><td>泳ぎます</td><td>泳いで</td><td>泳がない</td><td>泳いだ</td><td>Swim</td></tr><tr><td>18</td><td>おろす</td><td>下す</td><td>下します</td><td>下して</td><td>下さない</td><td>下した</td><td>Down</td></tr><tr><td>19</td><td>おわる</td><td>終わる</td><td>終わります</td><td>終わって</td><td>終わらない</td><td>終わった</td><td>End</td></tr><tr><td>20</td><td>かう</td><td>買う</td><td>買います</td><td>買って</td><td>買わない</td><td>買った</td><td>Buy</td></tr><tr><td>21</td><td>かえす</td><td>返す</td><td>返します</td><td>返して</td><td>返さない</td><td>返した</td><td>Return</td></tr><tr><td>22</td><td>かえる</td><td>帰る</td><td>帰ります</td><td>帰って</td><td>帰らない</td><td>帰った</td><td>Back</td></tr><tr><td>23</td><td>かかる</td><td>かかる</td><td>かかります</td><td>かかって</td><td>かからない</td><td>かかった</td><td></td></tr><tr><td>24</td><td>かく</td><td>書く</td><td>書きます</td><td>書いて</td><td>書かない</td><td>書いた</td><td>Write</td></tr><tr><td>25</td><td>かす</td><td>貸す</td><td>貸します</td><td>貸して</td><td>貸さない</td><td>貸した</td><td>Lend</td></tr><tr><td>26</td><td>きく</td><td>聞く</td><td>聞きます</td><td>聞いて</td><td>聞かない</td><td>聞いた</td><td>Listen</td></tr><tr><td>27</td><td>きまる</td><td>決まる</td><td>決まります</td><td>決まって</td><td>決まらない</td><td>決まった</td><td>Decision</td></tr><tr><td>28</td><td>きる</td><td>切る</td><td>切ります</td><td>切って</td><td>切らない</td><td>切った</td><td>Cut</td></tr><tr><td>29</td><td>けす</td><td>消す</td><td>消します</td><td>消して</td><td>消さない</td><td>消した</td><td>Delete</td></tr><tr><td>30</td><td>こむ</td><td>込む</td><td>込みます</td><td>込んで</td><td>込まない</td><td>込んだ</td><td>Include</td></tr><tr><td>31</td><td>かわく</td><td>渇く</td><td>渇きます</td><td>渇いて</td><td>渇かないん</td><td>渇いた</td><td>Thirst</td></tr><tr><td>32</td><td>ころぶ</td><td>転ぶ</td><td>転びます</td><td>転んで</td><td>転ばない</td><td>転んだ</td><td>Fall</td></tr><tr><td>33</td><td>さがす</td><td>探す</td><td>探します</td><td>探して</td><td>探さない</td><td>探した</td><td>Look for</td></tr><tr><td>34</td><td>さく</td><td>咲く</td><td>咲きます</td><td>咲いて</td><td>咲かない</td><td>咲いた</td><td>Blooming</td></tr><tr><td>35</td><td>さわる</td><td>触る</td><td>触ります</td><td>触って</td><td>触らない</td><td>触った</td><td>Touch</td></tr><tr><td>36</td><td>もらう</td><td>もらう</td><td>もらいます</td><td>もらって</td><td>もらわない</td><td>もらった</td><td>To</td></tr><tr><td>37</td><td>やすむ</td><td>休む</td><td>休みます</td><td>休んで</td><td>休まない</td><td>休んだ</td><td>Rest</td></tr><tr><td>38</td><td>やる</td><td>やる</td><td>やります</td><td>やって</td><td>やらない</td><td>やった</td><td>Give</td></tr><tr><td>39</td><td>よぶ</td><td>呼ぶ</td><td>呼びます</td><td>呼んで</td><td>呼ばない</td><td>呼んだ</td><td>To call</td></tr><tr><td>40</td><td>よむ</td><td>読む</td><td>読みます</td><td>読んで</td><td>読まない</td><td>読んだ</td><td>Read</td></tr><tr><td>41</td><td>わかる</td><td>分かる</td><td>分かります</td><td>分かって</td><td>分からない</td><td>分かった</td><td>Understand</td></tr><tr><td>42</td><td>わたす</td><td>渡す</td><td>渡します</td><td>渡して</td><td>渡さない</td><td>渡した</td><td>Pass</td></tr><tr><td>43</td><td>わたる</td><td>渡る</td><td>渡ります</td><td>渡って</td><td>渡らない</td><td>渡った</td><td>To cross</td></tr><tr><td>44</td><td>わらう</td><td>笑う</td><td>笑います</td><td>笑って</td><td>笑わない</td><td>笑った</td><td>Laugh</td></tr><tr><td>45</td><td>しぬ</td><td>死ぬ</td><td>死にます</td><td>死んで</td><td>死なない</td><td>死んだ</td><td>Die</td></tr><tr><td>46</td><td>しる</td><td>知る</td><td>知ります</td><td>知って</td><td>知らない</td><td>知った</td><td>Know</td></tr><tr><td>47</td><td>すう</td><td>吸う</td><td>吸います</td><td>吸って</td><td>吸わない</td><td>吸った</td><td>Suck</td></tr><tr><td>48</td><td>すべる</td><td>滑る</td><td>滑ります</td><td>滑って</td><td>滑らない</td><td>滑った</td><td>Slide</td></tr><tr><td>49</td><td>すむ</td><td>住む</td><td>住みます</td><td>住んで</td><td>住まない</td><td>住んだ</td><td>Live</td></tr><tr><td>50</td><td>すわる</td><td>座る</td><td>座ります</td><td>座って</td><td>座らない</td><td>座った</td><td>Sit</td></tr><tr><td>51</td><td>だす</td><td>出す</td><td>出します</td><td>出して</td><td>出さない</td><td>出した</td><td>Serve</td></tr><tr><td>52</td><td>たつ</td><td>立つ</td><td>立ちます</td><td>立って</td><td>立たない</td><td>立った</td><td>Stand</td></tr><tr><td>53</td><td>ちがう</td><td>違う</td><td>違います</td><td>違って</td><td>違わない</td><td>違った</td><td>Wrong</td></tr><tr><td>54</td><td>つかう</td><td>使う</td><td>使います</td><td>使って</td><td>使わない</td><td>使った</td><td>Use</td></tr><tr><td>55</td><td>つくる</td><td>作る</td><td>作ります</td><td>作って</td><td>作らない</td><td>作った</td><td>Make</td></tr><tr><td>56</td><td>てつだう</td><td>手伝う</td><td>手伝います</td><td>手伝って</td><td>手伝わない</td><td>手伝った</td><td>Help</td></tr><tr><td>57</td><td>とおる</td><td>通る</td><td>通ります</td><td>通って</td><td>通らない</td><td>通った</td><td>Passes</td></tr><tr><td>58</td><td>とどく</td><td>届く</td><td>届きます</td><td>届いて</td><td>届かない</td><td>届いた</td><td>Reach</td></tr><tr><td>59</td><td>とぶ</td><td>飛ぶ</td><td>飛びます</td><td>飛んで</td><td>飛ばない</td><td>飛んだ</td><td>Fly</td></tr><tr><td>60</td><td>とる</td><td>撮る</td><td>撮ります</td><td>撮って</td><td>撮らない</td><td>撮った</td><td>Take</td></tr><tr><td>61</td><td>なおす</td><td>直す</td><td>直します</td><td>直して</td><td>直さない</td><td>直した</td><td>Correct</td></tr><tr><td>62</td><td>なおる</td><td>治る</td><td>治ります</td><td>治って</td><td>治らない</td><td>治った</td><td>Heal</td></tr><tr><td>63</td><td>ならう</td><td>習う</td><td>習います</td><td>習って</td><td>習わない</td><td>習った</td><td>Learn</td></tr><tr><td>64</td><td>にあう</td><td>似合う</td><td>似合います</td><td>似合って</td><td>似合わない</td><td>似合った</td><td>Suits</td></tr><tr><td>65</td><td>ぬぐ</td><td>脱ぐ</td><td>脱ぎます</td><td>脱いで</td><td>脱がない</td><td>脱いだ</td><td>Undress</td></tr><tr><td>66</td><td>のぼる</td><td>登る</td><td>登ります</td><td>登って</td><td>登らない</td><td>登った</td><td>Climb</td></tr><tr><td>67</td><td>のむ</td><td>飲む</td><td>飲みます</td><td>飲んで</td><td>飲まない</td><td>飲んだ</td><td>Drink</td></tr><tr><td>68</td><td>のる</td><td>乗る</td><td>乗ります</td><td>乗って</td><td>乗らない</td><td>乗った</td><td>Ride</td></tr><tr><td>69</td><td>はいる</td><td>入る</td><td>入ります</td><td>入って</td><td>入らない</td><td>入った</td><td>Enter</td></tr><tr><td>70</td><td>はこぶ</td><td>運ぶ</td><td>運びます</td><td>運んで</td><td>運ばない</td><td>運んだ</td><td>Carry</td></tr><tr><td>71</td><td>はじまる</td><td>始まる</td><td>始まります</td><td>始まって</td><td>始まらない</td><td>始まった</td><td>Start</td></tr><tr><td>72</td><td>はたらく</td><td>働く</td><td>働きます</td><td>働いて</td><td>働かない</td><td>働いた</td><td>Work</td></tr><tr><td>73</td><td>はなす</td><td>話す</td><td>話します</td><td>話して</td><td>話さない</td><td>話した</td><td>Speak</td></tr><tr><td>74</td><td>はらう</td><td>払う</td><td>払います</td><td>払って</td><td>払わない</td><td>払った</td><td>Pay</td></tr><tr><td>75</td><td>ひく</td><td>弾く</td><td>弾きます</td><td>弾いて</td><td>弾かない</td><td>弾いた</td><td>Play</td></tr><tr><td>76</td><td>ふとる</td><td>太る</td><td>太ります</td><td>太って</td><td>太らない</td><td>太った</td><td>Gain weight</td></tr><tr><td>77</td><td>ふる</td><td>降る</td><td>降ります</td><td>降って</td><td>降らない</td><td>降った</td><td>Fall</td></tr><tr><td>78</td><td>まがる</td><td>曲がる</td><td>曲がります</td><td>曲がって</td><td>曲がらない</td><td>曲がった</td><td>Bend</td></tr><tr><td>79</td><td>まつ</td><td>待つ</td><td>待ちます</td><td>待って</td><td>待たない</td><td>待った</td><td>Wait</td></tr><tr><td>80</td><td>まよう</td><td>迷う</td><td>迷います</td><td>迷って</td><td>迷わない</td><td>迷った</td><td>Waver</td></tr><tr><td>81</td><td>まうす</td><td>申す</td><td>申します</td><td>申して</td><td>申さない</td><td>申した</td><td>Say</td></tr><tr><td>82</td><td>もつ</td><td>持つ</td><td>持ちます</td><td>待って</td><td>持たない</td><td>持った</td><td>Hold</td></tr></tbody></table><h1 id="kuru-and-suru"><a href="#kuru-and-suru" class="headerlink" title="kuru and suru"></a>kuru and suru</h1><p>|1|くる|来る|きます|きて|こまい|きた|Come|<br>|2|する|する|します|して|しない|した|Do|</p>]]></content>
+    <title>Crypto -- Introduction</title>
+    <link href="https://apexpeng.github.io/2021/05/23/CY_Intro/"/>
+    <id>https://apexpeng.github.io/2021/05/23/CY_Intro/</id>
+    <published>2021-05-23T09:25:09.773Z</published>
+    <updated>2021-05-15T14:49:48.579Z</updated>
     
     <summary type="html">
-    
-      
-      
-        &lt;p&gt;Japanese verbs are roughly divided into three groups according to their dictionary form (basic form).&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Group 1 verbs end w
-      
     
     </summary>
     
     
-      <category term="N2" scheme="https://apexpeng.github.io/categories/N2/"/>
+      <category term="HTTPS" scheme="https://apexpeng.github.io/categories/HTTPS/"/>
     
     
-      <category term="N2" scheme="https://apexpeng.github.io/tags/N2/"/>
+      <category term="HTTPS" scheme="https://apexpeng.github.io/tags/HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DC_lz77</title>
+    <link href="https://apexpeng.github.io/2021/05/23/DC_lz77/"/>
+    <id>https://apexpeng.github.io/2021/05/23/DC_lz77/</id>
+    <published>2021-05-23T09:24:53.423Z</published>
+    <updated>2021-05-15T14:22:48.066Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DC_deflate</title>
+    <link href="https://apexpeng.github.io/2021/05/23/DC_deflate/"/>
+    <id>https://apexpeng.github.io/2021/05/23/DC_deflate/</id>
+    <published>2021-05-23T09:24:53.422Z</published>
+    <updated>2021-05-15T14:22:09.124Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
     
   </entry>
   
@@ -89,6 +205,34 @@
 &lt;th&gt;番号&lt;/th&gt;
 &lt;th&gt;単語&lt;/th&gt;
 
+      
+    
+    </summary>
+    
+    
+      <category term="N2" scheme="https://apexpeng.github.io/categories/N2/"/>
+    
+    
+      <category term="N2" scheme="https://apexpeng.github.io/tags/N2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PASS N2 -- Words of N5 (Verb)　</title>
+    <link href="https://apexpeng.github.io/2020/08/15/n5-words-verb/"/>
+    <id>https://apexpeng.github.io/2020/08/15/n5-words-verb/</id>
+    <published>2020-08-15T12:34:51.000Z</published>
+    <updated>2021-05-15T14:13:47.016Z</updated>
+    
+    <content type="html"><![CDATA[<p>Japanese verbs are roughly divided into three groups according to their dictionary form (basic form).</p><ul><li><p>Group 1 verbs end with “u”. This group is also called Consonant-stem verbs or Godan-doushi (Godan verbs).</p></li><li><p>Group 2 verbs end with either “iru” or “eru”. This group is also called Vowel-stem-verbs or Ichidan-doushi (Ichidan verbs).</p></li><li><p>The last Group contains two irregular verbs, kuru (to come) and suru (to do).</p></li></ul><h1 id="U-Ending-Verbs-Godan-doushi"><a href="#U-Ending-Verbs-Godan-doushi" class="headerlink" title="U Ending Verbs / Godan-doushi"></a>U Ending Verbs / Godan-doushi</h1><table><thead><tr><th>番号</th><th>単語</th><th>漢字</th><th></th><th></th><th></th><th></th><th>意味</th></tr></thead><tbody><tr><td>1</td><td>いる</td><td>入る</td><td>います</td><td>いて</td><td>いない</td><td>いた</td><td>Enter</td></tr><tr><td>2</td><td>あびる</td><td>浴びる</td><td>浴びます</td><td>浴びて</td><td>浴びない</td><td>浴びた</td><td>Shower</td></tr><tr><td>3</td><td>おきる</td><td>起きる</td><td>起きます</td><td>起きて</td><td>起きない</td><td>起きた</td><td>Happen</td></tr><tr><td>4</td><td>おりる</td><td>降りる</td><td>降ります</td><td>降りて</td><td>降りない</td><td>降りた</td><td>Get off</td></tr><tr><td>5</td><td>かりる</td><td>借りる</td><td>借ります</td><td>借りて</td><td>借りない</td><td>借りた</td><td>To borrow</td></tr><tr><td>6</td><td>きる</td><td>着る</td><td>着ます</td><td>着て</td><td>着ない</td><td>着た</td><td>To wear</td></tr><tr><td>7</td><td>すぎる</td><td>過ぎる</td><td>過ぎます</td><td>過ぎて</td><td>過ぎない</td><td>過ぎた</td><td>Go across</td></tr><tr><td>8</td><td>できる</td><td>できる</td><td>できます</td><td>できて</td><td>できない</td><td>できた</td><td>Be good at</td></tr><tr><td>9</td><td>あける</td><td>開ける</td><td>開けます</td><td>開けて</td><td>開けない</td><td>開けた</td><td>Open</td></tr><tr><td>10</td><td>あげる</td><td>あげる</td><td>あげます</td><td>あげて</td><td>あげない</td><td>あげた</td><td>To raise</td></tr><tr><td>11</td><td>あつめる</td><td>集める</td><td>集めます</td><td>集めて</td><td>集めない</td><td>集めた</td><td>Collect</td></tr><tr><td>12</td><td>あわてる</td><td>慌てる</td><td>慌てます</td><td>慌てて</td><td>慌てない</td><td>慌てた</td><td>To hurry</td></tr><tr><td>13</td><td>うまれる</td><td>生まれる</td><td>生まれます</td><td>生まれて</td><td>生まれない</td><td>生まれた</td><td>Birth</td></tr><tr><td>14</td><td>おくれる</td><td>遅れる</td><td>遅れます</td><td>遅れて</td><td>遅れまい</td><td>遅れた</td><td>Be late</td></tr><tr><td>15</td><td>おしえる</td><td>教える</td><td>教えます</td><td>教えて</td><td>教えない</td><td>教えた</td><td>Teach</td></tr><tr><td>16</td><td>かける</td><td>かける</td><td>かけます</td><td>かけて</td><td>かけない</td><td>かけた</td><td>be going to do</td></tr><tr><td>17</td><td>かたづける</td><td>片付ける</td><td>片付けます</td><td>片付けて</td><td>片付けない</td><td>片付けた</td><td>To trim</td></tr><tr><td>18</td><td>かんがえる</td><td>考える</td><td>考えます</td><td>考えて</td><td>考えない</td><td>考えた</td><td>Think</td></tr><tr><td>19</td><td>きめる</td><td>決める</td><td>決めます</td><td>決めて</td><td>決めない</td><td>決めた</td><td>Decide</td></tr><tr><td>20</td><td>しめる</td><td>閉める</td><td>閉めます</td><td>閉めて</td><td>閉めない</td><td>閉めた</td><td>Close</td></tr><tr><td>21</td><td>しらせる</td><td>知らせる</td><td>知らせます</td><td>知らせて</td><td>知らせない</td><td>知らせた</td><td>Inform</td></tr><tr><td>22</td><td>しらべる</td><td>調べる</td><td>調べます</td><td>調べて</td><td>調べない</td><td>調べた</td><td>Examine</td></tr><tr><td>23</td><td>すてる</td><td>捨てる</td><td>捨てます</td><td>捨てて</td><td>捨てない</td><td>捨てた</td><td>Abandon</td></tr><tr><td>24</td><td>たしかめる</td><td>確かめる</td><td>確かめます</td><td>確かめて</td><td>確かめない</td><td>確かめた</td><td>Confirm</td></tr><tr><td>25</td><td>たべる</td><td>食べる</td><td>食べます</td><td>食べて</td><td>食べない</td><td>食べた</td><td>Eat</td></tr><tr><td>26</td><td>つかれる</td><td>疲れる</td><td>疲れます</td><td>疲れて</td><td>疲れない</td><td>疲れた</td><td>Get tired</td></tr><tr><td>27</td><td>つける</td><td>つける</td><td>つけます</td><td>つけて</td><td>つけない</td><td>つけた</td><td></td></tr><tr><td>28</td><td>つたえる</td><td>伝える</td><td>伝えます</td><td>伝えて</td><td>伝えない</td><td>伝えた</td><td>Transmit</td></tr><tr><td>29</td><td>でかける</td><td>出かける</td><td>出かけます</td><td>出かけて</td><td>出かけない</td><td>出かけた</td><td>Go out</td></tr><tr><td>30</td><td>でる</td><td>出る</td><td>出ます</td><td>出て</td><td>出ない</td><td>出た</td><td>Come out</td></tr><tr><td>31</td><td>とめる</td><td>止める</td><td>止めます</td><td>止めて</td><td>止めない</td><td>止めた</td><td>To stop</td></tr><tr><td>32</td><td>ねる</td><td>寝る</td><td>寝ます</td><td>寝て</td><td>寝ない</td><td>寝た</td><td>Sleep</td></tr><tr><td>33</td><td>はじめる</td><td>始める</td><td>始めます</td><td>始めて</td><td>始めない</td><td>始めた</td><td>Begin</td></tr><tr><td>34</td><td>みせる</td><td>見せる</td><td>見せます</td><td>見せて</td><td>見せない</td><td>見せた</td><td>Show</td></tr><tr><td>35</td><td>みる</td><td>見る</td><td>見ます</td><td>見て</td><td>見ない</td><td>見た</td><td>Look</td></tr><tr><td>36</td><td>やめる</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>37</td><td>わすれる</td><td>忘れる</td><td>忘れます</td><td>忘れて</td><td>忘れない</td><td>忘れた</td><td>Forget</td></tr></tbody></table><h1 id="Vowel-stem-verbs-Ichidan-doushi-Ichidan-verbs"><a href="#Vowel-stem-verbs-Ichidan-doushi-Ichidan-verbs" class="headerlink" title="Vowel-stem-verbs / Ichidan-doushi (Ichidan verbs)"></a>Vowel-stem-verbs / Ichidan-doushi (Ichidan verbs)</h1><table><thead><tr><th>番号</th><th>単語</th><th>漢字</th><th></th><th></th><th></th><th></th><th>意味</th></tr></thead><tbody><tr><td>1</td><td>あう</td><td>会う</td><td>会います</td><td>会って</td><td>会わない</td><td>会った</td><td>Meet</td></tr><tr><td>2</td><td>あく</td><td></td><td>開きます</td><td>開いて</td><td>開かない</td><td>開いた</td><td>Open</td></tr><tr><td>3</td><td>あそぶ</td><td>遊ぶ</td><td>遊びます</td><td>遊んで</td><td>遊ばない</td><td>遊んだ</td><td>Play</td></tr><tr><td>4</td><td>あらう</td><td>洗う</td><td>洗います</td><td>洗って</td><td>洗わない</td><td>洗った</td><td>Wash</td></tr><tr><td>5</td><td>ある</td><td>有る</td><td>有ります</td><td>有って</td><td>ない</td><td>有った</td><td>Exist</td></tr><tr><td>6</td><td>あるく</td><td>歩く</td><td>歩きます</td><td>歩いて</td><td>歩かない</td><td>歩いた</td><td>Walk</td></tr><tr><td>7</td><td>いう</td><td>言う</td><td>言います</td><td>言って</td><td>言わない</td><td>言った</td><td>Say</td></tr><tr><td>8</td><td>いく</td><td>行く</td><td>行きます</td><td>行って</td><td>行かない</td><td>行った</td><td>Go</td></tr><tr><td>9</td><td>いそぐ</td><td>急ぐ</td><td>急ぎます</td><td>急いて</td><td>急がない</td><td>急いだ</td><td>Hurry up</td></tr><tr><td>10</td><td>うたう</td><td>歌う</td><td>歌います</td><td>歌って</td><td>歌わない</td><td>歌った</td><td>Sing</td></tr><tr><td>11</td><td>うる</td><td>売る</td><td>売ります</td><td>売って</td><td>売らない</td><td>売った</td><td>Sell</td></tr><tr><td>12</td><td>えらぶ</td><td>選ぶ</td><td>選びます</td><td>選んで</td><td>選ばない</td><td>選んだ</td><td>Choose</td></tr><tr><td>13</td><td>おく</td><td>置く</td><td>置きます</td><td>置いて</td><td>置かない</td><td>置いた</td><td>Place</td></tr><tr><td>14</td><td>おくる</td><td>送る</td><td>送ります</td><td>送って</td><td>送らない</td><td>送った</td><td>Send</td></tr><tr><td>15</td><td>おとす</td><td>落とす</td><td>落とします</td><td>落として</td><td>落とさない</td><td>落とした</td><td>Drop</td></tr><tr><td>16</td><td>おもう</td><td>思う</td><td>思います</td><td>思って</td><td>思わない</td><td>思った</td><td>I think</td></tr><tr><td>17</td><td>およぐ</td><td>泳ぐ</td><td>泳ぎます</td><td>泳いで</td><td>泳がない</td><td>泳いだ</td><td>Swim</td></tr><tr><td>18</td><td>おろす</td><td>下す</td><td>下します</td><td>下して</td><td>下さない</td><td>下した</td><td>Down</td></tr><tr><td>19</td><td>おわる</td><td>終わる</td><td>終わります</td><td>終わって</td><td>終わらない</td><td>終わった</td><td>End</td></tr><tr><td>20</td><td>かう</td><td>買う</td><td>買います</td><td>買って</td><td>買わない</td><td>買った</td><td>Buy</td></tr><tr><td>21</td><td>かえす</td><td>返す</td><td>返します</td><td>返して</td><td>返さない</td><td>返した</td><td>Return</td></tr><tr><td>22</td><td>かえる</td><td>帰る</td><td>帰ります</td><td>帰って</td><td>帰らない</td><td>帰った</td><td>Back</td></tr><tr><td>23</td><td>かかる</td><td>かかる</td><td>かかります</td><td>かかって</td><td>かからない</td><td>かかった</td><td></td></tr><tr><td>24</td><td>かく</td><td>書く</td><td>書きます</td><td>書いて</td><td>書かない</td><td>書いた</td><td>Write</td></tr><tr><td>25</td><td>かす</td><td>貸す</td><td>貸します</td><td>貸して</td><td>貸さない</td><td>貸した</td><td>Lend</td></tr><tr><td>26</td><td>きく</td><td>聞く</td><td>聞きます</td><td>聞いて</td><td>聞かない</td><td>聞いた</td><td>Listen</td></tr><tr><td>27</td><td>きまる</td><td>決まる</td><td>決まります</td><td>決まって</td><td>決まらない</td><td>決まった</td><td>Decision</td></tr><tr><td>28</td><td>きる</td><td>切る</td><td>切ります</td><td>切って</td><td>切らない</td><td>切った</td><td>Cut</td></tr><tr><td>29</td><td>けす</td><td>消す</td><td>消します</td><td>消して</td><td>消さない</td><td>消した</td><td>Delete</td></tr><tr><td>30</td><td>こむ</td><td>込む</td><td>込みます</td><td>込んで</td><td>込まない</td><td>込んだ</td><td>Include</td></tr><tr><td>31</td><td>かわく</td><td>渇く</td><td>渇きます</td><td>渇いて</td><td>渇かないん</td><td>渇いた</td><td>Thirst</td></tr><tr><td>32</td><td>ころぶ</td><td>転ぶ</td><td>転びます</td><td>転んで</td><td>転ばない</td><td>転んだ</td><td>Fall</td></tr><tr><td>33</td><td>さがす</td><td>探す</td><td>探します</td><td>探して</td><td>探さない</td><td>探した</td><td>Look for</td></tr><tr><td>34</td><td>さく</td><td>咲く</td><td>咲きます</td><td>咲いて</td><td>咲かない</td><td>咲いた</td><td>Blooming</td></tr><tr><td>35</td><td>さわる</td><td>触る</td><td>触ります</td><td>触って</td><td>触らない</td><td>触った</td><td>Touch</td></tr><tr><td>36</td><td>もらう</td><td>もらう</td><td>もらいます</td><td>もらって</td><td>もらわない</td><td>もらった</td><td>To</td></tr><tr><td>37</td><td>やすむ</td><td>休む</td><td>休みます</td><td>休んで</td><td>休まない</td><td>休んだ</td><td>Rest</td></tr><tr><td>38</td><td>やる</td><td>やる</td><td>やります</td><td>やって</td><td>やらない</td><td>やった</td><td>Give</td></tr><tr><td>39</td><td>よぶ</td><td>呼ぶ</td><td>呼びます</td><td>呼んで</td><td>呼ばない</td><td>呼んだ</td><td>To call</td></tr><tr><td>40</td><td>よむ</td><td>読む</td><td>読みます</td><td>読んで</td><td>読まない</td><td>読んだ</td><td>Read</td></tr><tr><td>41</td><td>わかる</td><td>分かる</td><td>分かります</td><td>分かって</td><td>分からない</td><td>分かった</td><td>Understand</td></tr><tr><td>42</td><td>わたす</td><td>渡す</td><td>渡します</td><td>渡して</td><td>渡さない</td><td>渡した</td><td>Pass</td></tr><tr><td>43</td><td>わたる</td><td>渡る</td><td>渡ります</td><td>渡って</td><td>渡らない</td><td>渡った</td><td>To cross</td></tr><tr><td>44</td><td>わらう</td><td>笑う</td><td>笑います</td><td>笑って</td><td>笑わない</td><td>笑った</td><td>Laugh</td></tr><tr><td>45</td><td>しぬ</td><td>死ぬ</td><td>死にます</td><td>死んで</td><td>死なない</td><td>死んだ</td><td>Die</td></tr><tr><td>46</td><td>しる</td><td>知る</td><td>知ります</td><td>知って</td><td>知らない</td><td>知った</td><td>Know</td></tr><tr><td>47</td><td>すう</td><td>吸う</td><td>吸います</td><td>吸って</td><td>吸わない</td><td>吸った</td><td>Suck</td></tr><tr><td>48</td><td>すべる</td><td>滑る</td><td>滑ります</td><td>滑って</td><td>滑らない</td><td>滑った</td><td>Slide</td></tr><tr><td>49</td><td>すむ</td><td>住む</td><td>住みます</td><td>住んで</td><td>住まない</td><td>住んだ</td><td>Live</td></tr><tr><td>50</td><td>すわる</td><td>座る</td><td>座ります</td><td>座って</td><td>座らない</td><td>座った</td><td>Sit</td></tr><tr><td>51</td><td>だす</td><td>出す</td><td>出します</td><td>出して</td><td>出さない</td><td>出した</td><td>Serve</td></tr><tr><td>52</td><td>たつ</td><td>立つ</td><td>立ちます</td><td>立って</td><td>立たない</td><td>立った</td><td>Stand</td></tr><tr><td>53</td><td>ちがう</td><td>違う</td><td>違います</td><td>違って</td><td>違わない</td><td>違った</td><td>Wrong</td></tr><tr><td>54</td><td>つかう</td><td>使う</td><td>使います</td><td>使って</td><td>使わない</td><td>使った</td><td>Use</td></tr><tr><td>55</td><td>つくる</td><td>作る</td><td>作ります</td><td>作って</td><td>作らない</td><td>作った</td><td>Make</td></tr><tr><td>56</td><td>てつだう</td><td>手伝う</td><td>手伝います</td><td>手伝って</td><td>手伝わない</td><td>手伝った</td><td>Help</td></tr><tr><td>57</td><td>とおる</td><td>通る</td><td>通ります</td><td>通って</td><td>通らない</td><td>通った</td><td>Passes</td></tr><tr><td>58</td><td>とどく</td><td>届く</td><td>届きます</td><td>届いて</td><td>届かない</td><td>届いた</td><td>Reach</td></tr><tr><td>59</td><td>とぶ</td><td>飛ぶ</td><td>飛びます</td><td>飛んで</td><td>飛ばない</td><td>飛んだ</td><td>Fly</td></tr><tr><td>60</td><td>とる</td><td>撮る</td><td>撮ります</td><td>撮って</td><td>撮らない</td><td>撮った</td><td>Take</td></tr><tr><td>61</td><td>なおす</td><td>直す</td><td>直します</td><td>直して</td><td>直さない</td><td>直した</td><td>Correct</td></tr><tr><td>62</td><td>なおる</td><td>治る</td><td>治ります</td><td>治って</td><td>治らない</td><td>治った</td><td>Heal</td></tr><tr><td>63</td><td>ならう</td><td>習う</td><td>習います</td><td>習って</td><td>習わない</td><td>習った</td><td>Learn</td></tr><tr><td>64</td><td>にあう</td><td>似合う</td><td>似合います</td><td>似合って</td><td>似合わない</td><td>似合った</td><td>Suits</td></tr><tr><td>65</td><td>ぬぐ</td><td>脱ぐ</td><td>脱ぎます</td><td>脱いで</td><td>脱がない</td><td>脱いだ</td><td>Undress</td></tr><tr><td>66</td><td>のぼる</td><td>登る</td><td>登ります</td><td>登って</td><td>登らない</td><td>登った</td><td>Climb</td></tr><tr><td>67</td><td>のむ</td><td>飲む</td><td>飲みます</td><td>飲んで</td><td>飲まない</td><td>飲んだ</td><td>Drink</td></tr><tr><td>68</td><td>のる</td><td>乗る</td><td>乗ります</td><td>乗って</td><td>乗らない</td><td>乗った</td><td>Ride</td></tr><tr><td>69</td><td>はいる</td><td>入る</td><td>入ります</td><td>入って</td><td>入らない</td><td>入った</td><td>Enter</td></tr><tr><td>70</td><td>はこぶ</td><td>運ぶ</td><td>運びます</td><td>運んで</td><td>運ばない</td><td>運んだ</td><td>Carry</td></tr><tr><td>71</td><td>はじまる</td><td>始まる</td><td>始まります</td><td>始まって</td><td>始まらない</td><td>始まった</td><td>Start</td></tr><tr><td>72</td><td>はたらく</td><td>働く</td><td>働きます</td><td>働いて</td><td>働かない</td><td>働いた</td><td>Work</td></tr><tr><td>73</td><td>はなす</td><td>話す</td><td>話します</td><td>話して</td><td>話さない</td><td>話した</td><td>Speak</td></tr><tr><td>74</td><td>はらう</td><td>払う</td><td>払います</td><td>払って</td><td>払わない</td><td>払った</td><td>Pay</td></tr><tr><td>75</td><td>ひく</td><td>弾く</td><td>弾きます</td><td>弾いて</td><td>弾かない</td><td>弾いた</td><td>Play</td></tr><tr><td>76</td><td>ふとる</td><td>太る</td><td>太ります</td><td>太って</td><td>太らない</td><td>太った</td><td>Gain weight</td></tr><tr><td>77</td><td>ふる</td><td>降る</td><td>降ります</td><td>降って</td><td>降らない</td><td>降った</td><td>Fall</td></tr><tr><td>78</td><td>まがる</td><td>曲がる</td><td>曲がります</td><td>曲がって</td><td>曲がらない</td><td>曲がった</td><td>Bend</td></tr><tr><td>79</td><td>まつ</td><td>待つ</td><td>待ちます</td><td>待って</td><td>待たない</td><td>待った</td><td>Wait</td></tr><tr><td>80</td><td>まよう</td><td>迷う</td><td>迷います</td><td>迷って</td><td>迷わない</td><td>迷った</td><td>Waver</td></tr><tr><td>81</td><td>まうす</td><td>申す</td><td>申します</td><td>申して</td><td>申さない</td><td>申した</td><td>Say</td></tr><tr><td>82</td><td>もつ</td><td>持つ</td><td>持ちます</td><td>待って</td><td>持たない</td><td>持った</td><td>Hold</td></tr></tbody></table><h1 id="kuru-and-suru"><a href="#kuru-and-suru" class="headerlink" title="kuru and suru"></a>kuru and suru</h1><p>|1|くる|来る|きます|きて|こまい|きた|Come|<br>|2|する|する|します|して|しない|した|Do|</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Japanese verbs are roughly divided into three groups according to their dictionary form (basic form).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Group 1 verbs end w
       
     
     </summary>
