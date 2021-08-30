@@ -20,30 +20,33 @@
     var CONFIG = {"hostname":"apexpeng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Our life is shaped by our mind; we become what we think.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Penn&#39;s Blog">
-<meta property="og:url" content="https://apexpeng.github.io/index.html">
+  <meta name="description" content="您可以利用 Android 传感器框架来访问这些传感器并获取传感器的原始数据。传感器框架是 android.hardware 软件包的一部分，包含了以下类和接口： SensorManager您可以使用这个类来创建传感器服务的实例。该类提供了各种方法来访问和列出传感器，注册和取消注册传感器事件监听器，以及获取屏幕方向信息。它还提供了几个传感器常量，用于报告传感器精确度，设置数据采集频率和校准传感器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android传感器框架">
+<meta property="og:url" content="https://apexpeng.github.io/2021/08/30/Sensors_4_android_app/index.html">
 <meta property="og:site_name" content="Penn&#39;s Blog">
-<meta property="og:description" content="Our life is shaped by our mind; we become what we think.">
+<meta property="og:description" content="您可以利用 Android 传感器框架来访问这些传感器并获取传感器的原始数据。传感器框架是 android.hardware 软件包的一部分，包含了以下类和接口： SensorManager您可以使用这个类来创建传感器服务的实例。该类提供了各种方法来访问和列出传感器，注册和取消注册传感器事件监听器，以及获取屏幕方向信息。它还提供了几个传感器常量，用于报告传感器精确度，设置数据采集频率和校准传感器。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-30T12:50:08.193Z">
+<meta property="article:modified_time" content="2021-08-07T09:12:51.138Z">
 <meta property="article:author" content="Zhang Peng">
+<meta property="article:tag" content="传感器">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://apexpeng.github.io/">
+<link rel="canonical" href="https://apexpeng.github.io/2021/08/30/Sensors_4_android_app/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Penn's Blog</title>
+  <title>Android传感器框架 | Penn's Blog</title>
   
 
 
@@ -153,223 +156,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/nginx_0_intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Zhang Peng">
-      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Penn's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/30/nginx_0_intro/" class="post-title-link" itemprop="url">Nginx及与Nginx相关的软件包介绍</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-08-30 20:50:17 / Modified: 10:15:31" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><p>Nginx是俄罗斯人Igor Sysoev用C语言编写的网络服务软件。它具有相应快、可扩展、高可靠性、低内存消耗、高并发等优点。它包含：</p>
-<ul>
-<li>HTTP和反向代理服务器</li>
-<li>邮件代理服务器</li>
-<li>TCP/UDP 代理服务器<br>等功能并支持perl、uwsgi、grpc、gzip、gunzip、memcached等一系列网络基础功能。</li>
-</ul>
-<p>Nginx支持使用包括openssl、BoringSSL在内的多种ssl构建网络服务。</p>
-<p>Nginx的市场占有率常年在1/3左右，每月netcraft公司都会出一次调查报告，当前市场上各网络服务占有率如下：<br><img src="https://news.netcraft.com/images/2021/08/wss-share.png" alt="avatar"></p>
-<p>|Developer|July 2021|Percent|August 2021|Percent|Change|<br>|—|—|—|—|—|—|—|<br>|nginx|444,524,631|36.54%|441,930,791|36.48%|-0.06|<br>|Apache|311,567,368|25.61%|305,180,858|25.19%|-0.42|<br>|OpenResty|75,464,874|6.20%|75,516,218|6.23%|0.03|<br>|Cloudflare|54,611,856|4.49%|55,830,630|4.61%|0.12|</p>
-<h2 id="Nginx测试组件"><a href="#Nginx测试组件" class="headerlink" title="Nginx测试组件"></a>Nginx测试组件</h2><p>Test suite for nginx我这里简称为nginx-tests，是由perl编写的nginx测试组件。通常，为了验证Nginx服务器是否搭建成功，我们会跑一下nignx-tests。在Nginx 1.14.0版本之后，nginx-tests做了巨大的变更，取消了代码中对每个Nginx版本的支持（每次Nginx release在nginx-tests中都有对应的TAGS），变更为当前主分支支持所有nginx版本。</p>
-<h2 id="Asynch-Mode-for-NGINX"><a href="#Asynch-Mode-for-NGINX" class="headerlink" title="Asynch Mode for NGINX*"></a>Asynch Mode for NGINX*</h2><p>Intel* <a href="https://01.org/intel-quickassist-technology" target="_blank" rel="noopener">QAT</a> 在Nginx的基础之上添加了基于openssl async job的异步支持，让Nginx有显著的性能提升。但它并不支持所有的nginx功能，目前它支持的功能包括HTTPS（SSL、TLS1、TLS1.2、TLS1.3）、proxy、upstream等；OS包括Linux、FreeBSD。</p>
-<p>它是也会随着Nginx更新而更新，是一个比较活跃的repo。</p>
-<h2 id="Nginx官方网址"><a href="#Nginx官方网址" class="headerlink" title="Nginx官方网址"></a>Nginx官方网址</h2><ul>
-<li><a href="https://nginx.org/" target="_blank" rel="noopener">Nginx</a></li>
-<li><a href="https://hg.nginx.org/nginx/" target="_blank" rel="noopener">Nginx source code</a></li>
-<li><a href="https://github.com/nginx/nginx/" target="_blank" rel="noopener">GitHub Mirror for Nginx</a></li>
-<li><a href="https://hg.nginx.org/nginx-tests/" target="_blank" rel="noopener">Test suite for nginx</a></li>
-<li><a href="https://github.com/nginx/nginx-tests" target="_blank" rel="noopener">GitHub Mirror for nginx-tests</a></li>
-<li><a href="https://github.com/intel/asynch_mode_nginx" target="_blank" rel="noopener">Asynch Mode for NGINX*</a></li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://nginx.org/en/" target="_blank" rel="noopener">https://nginx.org/en/</a><br><a href="https://news.netcraft.com/" target="_blank" rel="noopener">https://news.netcraft.com/</a><br><a href="https://github.com/intel/asynch_mode_nginx" target="_blank" rel="noopener">https://github.com/intel/asynch_mode_nginx</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/Sensors_1_intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Zhang Peng">
-      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Penn's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/30/Sensors_1_intro/" class="post-title-link" itemprop="url">常用传感器简介</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-30 20:50:08" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:08+08:00">2021-08-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-14 17:05:59" itemprop="dateModified" datetime="2021-08-14T17:05:59+08:00">2021-08-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%96%E8%AE%BE/" itemprop="url" rel="index"><span itemprop="name">外设</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="常见传感器种类与用途"><a href="#常见传感器种类与用途" class="headerlink" title="常见传感器种类与用途"></a>常见传感器种类与用途</h2><table>
-<thead>
-<tr>
-<th>传感器类型</th>
-<th>物理测量范围</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>加速度传感器（又称之为重力传感器或者倾角传感器）</td>
-<td>测量在所有三个物理轴向（x、y 和 z）上施加在设备上的加速力（包括重力），以 m/s2 为单位。</td>
-<td>动态检测（摇晃、倾斜等）。</td>
-</tr>
-<tr>
-<td>温度传感器</td>
-<td>以摄氏度 (°C) 为单位测量环境室温，部分传感器可以设定为华氏摄氏度。</td>
-<td>监测气温。</td>
-</tr>
-<tr>
-<td>陀螺仪</td>
-<td>测量设备在三个物理轴向（x、y 和 z）上的旋转速率，以 rad/s 为单位。</td>
-<td>旋转检测（旋转、转动等）。</td>
-</tr>
-<tr>
-<td>光传感器</td>
-<td>测量环境光级（照度），以 lx 为单位。</td>
-<td>控制屏幕亮度。</td>
-</tr>
-<tr>
-<td>磁通传感器</td>
-<td>测量所有三个物理轴向（x、y、z）上的环境地磁场，以 μT 为单位。</td>
-<td>电子罗盘</td>
-</tr>
-<tr>
-<td>气压传感器</td>
-<td>测量环境气压，以 hPa 或 mbar 为单位。</td>
-<td>监测气压变化。</td>
-</tr>
-<tr>
-<td>距离传感器（部分屏幕可以从硬件上模拟距离传感器）</td>
-<td>测量物体相对于设备显示屏幕的距离，以 cm 为单位。该传感器通常用于确定手机是否被举到人的耳边。</td>
-<td>通话过程中手机的位置。</td>
-</tr>
-<tr>
-<td>湿度传感器</td>
-<td>测量环境的相对湿度，以百分比 (%) 表示。</td>
-<td>监测露点、绝对湿度和相对湿度。</td>
-</tr>
-</tbody></table>
-<h2 id="倾角传感器"><a href="#倾角传感器" class="headerlink" title="倾角传感器"></a>倾角传感器</h2><p>倾角传感器在工业上经常用于测量物体水平，在手机里则用于测量相对物理轴向上施加给设备的加速力。根据测量物理轴向的能力，可以分为二维和三维倾角传感器。从工作原理上可以分为固体摆、液体摆及气体摆三种。</p>
-<h2 id="温度传感器"><a href="#温度传感器" class="headerlink" title="温度传感器"></a>温度传感器</h2><p>温度传感器主要有热电偶、热敏电阻、电阻温度检测器、和</p>
-<h2 id="传感器信号接口"><a href="#传感器信号接口" class="headerlink" title="传感器信号接口"></a>传感器信号接口</h2><p>一般的，传感器会采用AD、PWM、I2C（SMBUS）、SPI等接口与CPU相连。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Google Developers.传感器概览[EB/OL].<a href="https://developer.android.google.cn/guide/topics/sensors/sensors_overview?hl=zh-cn" target="_blank" rel="noopener">https://developer.android.google.cn/guide/topics/sensors/sensors_overview?hl=zh-cn</a><br>[2] 张维胜.倾角传感器原理和发展[J].传感器世界,2002.8:18-21.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -385,10 +175,9 @@
       <meta itemprop="name" content="Penn's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/30/Sensors_4_android_app/" class="post-title-link" itemprop="url">Android传感器框架</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Android传感器框架
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -427,7 +216,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>您可以利用 Android 传感器框架来访问这些传感器并获取传感器的原始数据。传感器框架是 android.hardware 软件包的一部分，包含了以下类和接口：</p>
+        <p>您可以利用 Android 传感器框架来访问这些传感器并获取传感器的原始数据。传感器框架是 android.hardware 软件包的一部分，包含了以下类和接口：</p>
 <p>SensorManager<br>您可以使用这个类来创建传感器服务的实例。该类提供了各种方法来访问和列出传感器，注册和取消注册传感器事件监听器，以及获取屏幕方向信息。它还提供了几个传感器常量，用于报告传感器精确度，设置数据采集频率和校准传感器。<br>Sensor<br>您可以使用这个类来创建特定传感器的实例。该类提供了各种方法来确定传感器的特性。<br>SensorEvent<br>系统使用这个类来创建传感器事件对象，该对象提供有关传感器事件的信息。传感器事件对象中包含以下信息：原始传感器数据、生成事件的传感器类型、数据的准确度和事件的时间戳。<br>SensorEventListener<br>您可以使用此接口创建两种回调方法，以在传感器值或传感器精确度发生变化时接收通知（传感器事件）。<br>在典型的应用中，您可以使用这些与传感器相关的 API 来执行两个基本任务：</p>
 <p>识别传感器和传感器特性<br>如果应用具有依赖于特定传感器类型或特性的功能，则在运行时识别传感器和传感器特性非常有用。例如，您可能希望识别设备上的所有传感器，以便于停用依赖于不存在的传感器的应用功能。同样，您可能希望识别特定类型的所有传感器，以便选择可以为应用带来最佳性能的传感器实现。</p>
 <p>监控传感器事件<br>您可以通过监控传感器事件来获取原始传感器数据。每当传感器检测到它所测量的参数发生变化时，就会发生传感器事件。传感器事件为您提供 4 项信息：触发事件的传感器的名称、事件的时间戳、事件的准确度以及触发事件的原始传感器数据。</p>
@@ -573,21 +362,33 @@ protected void onPause() {
 <p>使用传感器之前应先进行验证<br>在尝试从传感器采集数据之前，应始终先验证设备上是否存在该传感器。不要因为某种传感器很常用就假设它存在。没有人要求设备制造商必须在其设备中提供任何特定的传感器。</p>
 <p>谨慎选择传感器延迟<br>使用 registerListener() 方法注册传感器时，请务必选择适合您的应用或用例的提交频率。传感器能以非常高的频率提供数据。允许系统发送您不需要的额外数据，会浪费系统资源和耗费电池电量。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/%E4%BC%A0%E6%84%9F%E5%99%A8/" rel="tag"># 传感器</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/08/30/Sensors_1_intro/" rel="next" title="常用传感器简介">
+      常用传感器简介 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 

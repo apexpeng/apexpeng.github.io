@@ -20,17 +20,22 @@
     var CONFIG = {"hostname":"apexpeng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Our life is shaped by our mind; we become what we think.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Penn&#39;s Blog">
-<meta property="og:url" content="https://apexpeng.github.io/categories/DC/index.html">
+  <meta name="description" content="NginxNginx是俄罗斯人Igor Sysoev用C语言编写的网络服务软件。它具有相应快、可扩展、高可靠性、低内存消耗、高并发等优点。它包含：  HTTP和反向代理服务器 邮件代理服务器 TCP&#x2F;UDP 代理服务器等功能并支持perl、uwsgi、grpc、gzip、gunzip、memcached等一系列网络基础功能。  Nginx支持使用包括openssl、BoringSSL在内的多种ss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx及与Nginx相关的软件包介绍">
+<meta property="og:url" content="https://apexpeng.github.io/2021/08/30/nginx_0_intro/index.html">
 <meta property="og:site_name" content="Penn&#39;s Blog">
-<meta property="og:description" content="Our life is shaped by our mind; we become what we think.">
+<meta property="og:description" content="NginxNginx是俄罗斯人Igor Sysoev用C语言编写的网络服务软件。它具有相应快、可扩展、高可靠性、低内存消耗、高并发等优点。它包含：  HTTP和反向代理服务器 邮件代理服务器 TCP&#x2F;UDP 代理服务器等功能并支持perl、uwsgi、grpc、gzip、gunzip、memcached等一系列网络基础功能。  Nginx支持使用包括openssl、BoringSSL在内的多种ss">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://news.netcraft.com/images/2021/08/wss-share.png">
+<meta property="article:published_time" content="2021-08-30T12:50:17.598Z">
+<meta property="article:modified_time" content="2021-08-30T02:15:31.016Z">
 <meta property="article:author" content="Zhang Peng">
+<meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://news.netcraft.com/images/2021/08/wss-share.png">
 
-<link rel="canonical" href="https://apexpeng.github.io/categories/DC/">
+<link rel="canonical" href="https://apexpeng.github.io/2021/08/30/nginx_0_intro/">
 
 
 <script id="page-configurations">
@@ -38,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Category: DC | Penn's Blog</title>
+  <title>Nginx及与Nginx相关的软件包介绍 | Penn's Blog</title>
   
 
 
@@ -153,51 +158,109 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">DC
-          <small>Category</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/nginx_0_intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx及与Nginx相关的软件包介绍
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-08-30 20:50:17 / Modified: 10:15:31" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><p>Nginx是俄罗斯人Igor Sysoev用C语言编写的网络服务软件。它具有相应快、可扩展、高可靠性、低内存消耗、高并发等优点。它包含：</p>
+<ul>
+<li>HTTP和反向代理服务器</li>
+<li>邮件代理服务器</li>
+<li>TCP/UDP 代理服务器<br>等功能并支持perl、uwsgi、grpc、gzip、gunzip、memcached等一系列网络基础功能。</li>
+</ul>
+<p>Nginx支持使用包括openssl、BoringSSL在内的多种ssl构建网络服务。</p>
+<p>Nginx的市场占有率常年在1/3左右，每月netcraft公司都会出一次调查报告，当前市场上各网络服务占有率如下：<br><img src="https://news.netcraft.com/images/2021/08/wss-share.png" alt="avatar"></p>
+<p>|Developer|July 2021|Percent|August 2021|Percent|Change|<br>|—|—|—|—|—|—|—|<br>|nginx|444,524,631|36.54%|441,930,791|36.48%|-0.06|<br>|Apache|311,567,368|25.61%|305,180,858|25.19%|-0.42|<br>|OpenResty|75,464,874|6.20%|75,516,218|6.23%|0.03|<br>|Cloudflare|54,611,856|4.49%|55,830,630|4.61%|0.12|</p>
+<h2 id="Nginx测试组件"><a href="#Nginx测试组件" class="headerlink" title="Nginx测试组件"></a>Nginx测试组件</h2><p>Test suite for nginx我这里简称为nginx-tests，是由perl编写的nginx测试组件。通常，为了验证Nginx服务器是否搭建成功，我们会跑一下nignx-tests。在Nginx 1.14.0版本之后，nginx-tests做了巨大的变更，取消了代码中对每个Nginx版本的支持（每次Nginx release在nginx-tests中都有对应的TAGS），变更为当前主分支支持所有nginx版本。</p>
+<h2 id="Asynch-Mode-for-NGINX"><a href="#Asynch-Mode-for-NGINX" class="headerlink" title="Asynch Mode for NGINX*"></a>Asynch Mode for NGINX*</h2><p>Intel* <a href="https://01.org/intel-quickassist-technology" target="_blank" rel="noopener">QAT</a> 在Nginx的基础之上添加了基于openssl async job的异步支持，让Nginx有显著的性能提升。但它并不支持所有的nginx功能，目前它支持的功能包括HTTPS（SSL、TLS1、TLS1.2、TLS1.3）、proxy、upstream等；OS包括Linux、FreeBSD。</p>
+<p>它是也会随着Nginx更新而更新，是一个比较活跃的repo。</p>
+<h2 id="Nginx官方网址"><a href="#Nginx官方网址" class="headerlink" title="Nginx官方网址"></a>Nginx官方网址</h2><ul>
+<li><a href="https://nginx.org/" target="_blank" rel="noopener">Nginx</a></li>
+<li><a href="https://hg.nginx.org/nginx/" target="_blank" rel="noopener">Nginx source code</a></li>
+<li><a href="https://github.com/nginx/nginx/" target="_blank" rel="noopener">GitHub Mirror for Nginx</a></li>
+<li><a href="https://hg.nginx.org/nginx-tests/" target="_blank" rel="noopener">Test suite for nginx</a></li>
+<li><a href="https://github.com/nginx/nginx-tests" target="_blank" rel="noopener">GitHub Mirror for nginx-tests</a></li>
+<li><a href="https://github.com/intel/asynch_mode_nginx" target="_blank" rel="noopener">Asynch Mode for NGINX*</a></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://nginx.org/en/" target="_blank" rel="noopener">https://nginx.org/en/</a><br><a href="https://news.netcraft.com/" target="_blank" rel="noopener">https://news.netcraft.com/</a><br><a href="https://github.com/intel/asynch_mode_nginx" target="_blank" rel="noopener">https://github.com/intel/asynch_mode_nginx</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-23T17:25:09+08:00"
-              content="2021-05-23">
-          05-23
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/23/DC_Intro/" itemprop="url">
-            <span itemprop="name">Compression -- Introduction</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/30/Sensors_1_intro/" rel="prev" title="常用传感器简介">
+      <i class="fa fa-chevron-left"></i> 常用传感器简介
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -250,6 +313,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">1.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx测试组件"><span class="nav-number">2.</span> <span class="nav-text">Nginx测试组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asynch-Mode-for-NGINX"><span class="nav-number">3.</span> <span class="nav-text">Asynch Mode for NGINX*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx官方网址"><span class="nav-number">4.</span> <span class="nav-text">Nginx官方网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -265,20 +329,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -377,7 +441,6 @@
   
 
   
-
 
 </body>
 </html>
