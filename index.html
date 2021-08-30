@@ -159,7 +159,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/nginx_0_intro/">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/nginx/nginx_0_intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -173,7 +173,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/30/nginx_0_intro/" class="post-title-link" itemprop="url">Nginx及与Nginx相关的软件包介绍</a>
+            <a href="/2021/08/30/nginx/nginx_0_intro/" class="post-title-link" itemprop="url">Nginx及与Nginx相关的软件包介绍</a>
         </h2>
 
         <div class="post-meta">
@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-08-30 20:50:17 / Modified: 10:15:31" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
+              <time title="Created: 2021-08-30 20:50:17 / Modified: 20:56:42" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -207,7 +207,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><p>Nginx是俄罗斯人Igor Sysoev用C语言编写的网络服务软件。它具有相应快、可扩展、高可靠性、低内存消耗、高并发等优点。它包含：</p>
+          <h2 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h2><p>Nginx是俄罗斯人Igor Sysoev用C语言编写的网络服务软件。它具有相应快、可扩展、高可靠性、低内存消耗、高并发等优点。它包含：</p>
 <ul>
 <li>HTTP和反向代理服务器</li>
 <li>邮件代理服务器</li>
@@ -215,7 +215,7 @@
 </ul>
 <p>Nginx支持使用包括openssl、BoringSSL在内的多种ssl构建网络服务。</p>
 <p>Nginx的市场占有率常年在1/3左右，每月netcraft公司都会出一次调查报告，当前市场上各网络服务占有率如下：<br><img src="https://news.netcraft.com/images/2021/08/wss-share.png" alt="avatar"></p>
-<p>|Developer|July 2021|Percent|August 2021|Percent|Change|<br>|—|—|—|—|—|—|—|<br>|nginx|444,524,631|36.54%|441,930,791|36.48%|-0.06|<br>|Apache|311,567,368|25.61%|305,180,858|25.19%|-0.42|<br>|OpenResty|75,464,874|6.20%|75,516,218|6.23%|0.03|<br>|Cloudflare|54,611,856|4.49%|55,830,630|4.61%|0.12|</p>
+<p>|Developer|July 2021|Percent|August 2021|Percent|Change|<br>|–|–|–|–|–|–|–|<br>|nginx|444,524,631|36.54%|441,930,791|36.48%|-0.06|<br>|Apache|311,567,368|25.61%|305,180,858|25.19%|-0.42|<br>|OpenResty|75,464,874|6.20%|75,516,218|6.23%|0.03|<br>|Cloudflare|54,611,856|4.49%|55,830,630|4.61%|0.12|</p>
 <h2 id="Nginx测试组件"><a href="#Nginx测试组件" class="headerlink" title="Nginx测试组件"></a>Nginx测试组件</h2><p>Test suite for nginx我这里简称为nginx-tests，是由perl编写的nginx测试组件。通常，为了验证Nginx服务器是否搭建成功，我们会跑一下nignx-tests。在Nginx 1.14.0版本之后，nginx-tests做了巨大的变更，取消了代码中对每个Nginx版本的支持（每次Nginx release在nginx-tests中都有对应的TAGS），变更为当前主分支支持所有nginx版本。</p>
 <h2 id="Asynch-Mode-for-NGINX"><a href="#Asynch-Mode-for-NGINX" class="headerlink" title="Asynch Mode for NGINX*"></a>Asynch Mode for NGINX*</h2><p>Intel* <a href="https://01.org/intel-quickassist-technology" target="_blank" rel="noopener">QAT</a> 在Nginx的基础之上添加了基于openssl async job的异步支持，让Nginx有显著的性能提升。但它并不支持所有的nginx功能，目前它支持的功能包括HTTPS（SSL、TLS1、TLS1.2、TLS1.3）、proxy、upstream等；OS包括Linux、FreeBSD。</p>
 <p>它是也会随着Nginx更新而更新，是一个比较活跃的repo。</p>
@@ -223,7 +223,7 @@
 <li><a href="https://nginx.org/" target="_blank" rel="noopener">Nginx</a></li>
 <li><a href="https://hg.nginx.org/nginx/" target="_blank" rel="noopener">Nginx source code</a></li>
 <li><a href="https://github.com/nginx/nginx/" target="_blank" rel="noopener">GitHub Mirror for Nginx</a></li>
-<li><a href="https://hg.nginx.org/nginx-tests/" target="_blank" rel="noopener">Test suite for nginx</a></li>
+<li><a href="https://hg.nginx.org/nginx-tests/" target="_blank" rel="noopener">Test suite for nginx(nginx-tests)</a></li>
 <li><a href="https://github.com/nginx/nginx-tests" target="_blank" rel="noopener">GitHub Mirror for nginx-tests</a></li>
 <li><a href="https://github.com/intel/asynch_mode_nginx" target="_blank" rel="noopener">Asynch Mode for NGINX*</a></li>
 </ul>
@@ -247,7 +247,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/Sensors_1_intro/">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/peripherals/sensor/Sensors_1_intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -261,7 +261,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/30/Sensors_1_intro/" class="post-title-link" itemprop="url">常用传感器简介</a>
+            <a href="/2021/08/30/peripherals/sensor/Sensors_1_intro/" class="post-title-link" itemprop="url">常用传感器简介</a>
         </h2>
 
         <div class="post-meta">
@@ -373,7 +373,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/Sensors_4_android_app/">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/peripherals/sensor/Sensors_4_android_app/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -387,7 +387,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/30/Sensors_4_android_app/" class="post-title-link" itemprop="url">Android传感器框架</a>
+            <a href="/2021/08/30/peripherals/sensor/Sensors_4_android_app/" class="post-title-link" itemprop="url">Android传感器框架</a>
         </h2>
 
         <div class="post-meta">
