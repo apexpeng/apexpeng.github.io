@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-08-30 20:50:17 / Modified: 20:56:42" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
+              <time title="Created: 2021-08-30 20:50:17 / Modified: 21:02:05" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -215,7 +215,50 @@
 </ul>
 <p>Nginx支持使用包括openssl、BoringSSL在内的多种ssl构建网络服务。</p>
 <p>Nginx的市场占有率常年在1/3左右，每月netcraft公司都会出一次调查报告，当前市场上各网络服务占有率如下：<br><img src="https://news.netcraft.com/images/2021/08/wss-share.png" alt="avatar"></p>
-<p>|Developer|July 2021|Percent|August 2021|Percent|Change|<br>|–|–|–|–|–|–|–|<br>|nginx|444,524,631|36.54%|441,930,791|36.48%|-0.06|<br>|Apache|311,567,368|25.61%|305,180,858|25.19%|-0.42|<br>|OpenResty|75,464,874|6.20%|75,516,218|6.23%|0.03|<br>|Cloudflare|54,611,856|4.49%|55,830,630|4.61%|0.12|</p>
+<table>
+<thead>
+<tr>
+<th>Developer</th>
+<th>July 2021</th>
+<th>Percent</th>
+<th>August 2021</th>
+<th>Percent</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nginx</td>
+<td>444,524,631</td>
+<td>36.54%</td>
+<td>441,930,791</td>
+<td>36.48%</td>
+<td>-0.06</td>
+</tr>
+<tr>
+<td>Apache</td>
+<td>311,567,368</td>
+<td>25.61%</td>
+<td>305,180,858</td>
+<td>25.19%</td>
+<td>-0.42</td>
+</tr>
+<tr>
+<td>OpenResty</td>
+<td>75,464,874</td>
+<td>6.20%</td>
+<td>75,516,218</td>
+<td>6.23%</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>Cloudflare</td>
+<td>54,611,856</td>
+<td>4.49%</td>
+<td>55,830,630</td>
+<td>4.61%</td>
+<td>0.12</td>
+</tr>
+</tbody></table>
 <h2 id="Nginx测试组件"><a href="#Nginx测试组件" class="headerlink" title="Nginx测试组件"></a>Nginx测试组件</h2><p>Test suite for nginx我这里简称为nginx-tests，是由perl编写的nginx测试组件。通常，为了验证Nginx服务器是否搭建成功，我们会跑一下nignx-tests。在Nginx 1.14.0版本之后，nginx-tests做了巨大的变更，取消了代码中对每个Nginx版本的支持（每次Nginx release在nginx-tests中都有对应的TAGS），变更为当前主分支支持所有nginx版本。</p>
 <h2 id="Asynch-Mode-for-NGINX"><a href="#Asynch-Mode-for-NGINX" class="headerlink" title="Asynch Mode for NGINX*"></a>Asynch Mode for NGINX*</h2><p>Intel* <a href="https://01.org/intel-quickassist-technology" target="_blank" rel="noopener">QAT</a> 在Nginx的基础之上添加了基于openssl async job的异步支持，让Nginx有显著的性能提升。但它并不支持所有的nginx功能，目前它支持的功能包括HTTPS（SSL、TLS1、TLS1.2、TLS1.3）、proxy、upstream等；OS包括Linux、FreeBSD。</p>
 <p>它是也会随着Nginx更新而更新，是一个比较活跃的repo。</p>
