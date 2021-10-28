@@ -159,7 +159,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/nginx/nginx_0_intro/">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/nginx/nginx_7_http_11phases/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -173,7 +173,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/30/nginx/nginx_0_intro/" class="post-title-link" itemprop="url">Nginx及与Nginx相关的软件包介绍</a>
+            <a href="/2021/10/28/nginx/nginx_7_http_11phases/" class="post-title-link" itemprop="url">Nginx 处理 HTTP 请求的 11 个阶段</a>
         </h2>
 
         <div class="post-meta">
@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-08-30 20:50:17 / Modified: 21:02:05" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
+              <time title="Created: 2021-10-28 20:46:39 / Modified: 20:55:54" itemprop="dateCreated datePublished" datetime="2021-10-28T20:46:39+08:00">2021-10-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -207,70 +207,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h2><p>Nginx是俄罗斯人Igor Sysoev用C语言编写的网络服务软件。它具有相应快、可扩展、高可靠性、低内存消耗、高并发等优点。它包含：</p>
-<ul>
-<li>HTTP和反向代理服务器</li>
-<li>邮件代理服务器</li>
-<li>TCP/UDP 代理服务器<br>等功能并支持perl、uwsgi、grpc、gzip、gunzip、memcached等一系列网络基础功能。</li>
-</ul>
-<p>Nginx支持使用包括openssl、BoringSSL在内的多种ssl构建网络服务。</p>
-<p>Nginx的市场占有率常年在1/3左右，每月netcraft公司都会出一次调查报告，当前市场上各网络服务占有率如下：<br><img src="https://news.netcraft.com/images/2021/08/wss-share.png" alt="avatar"></p>
-<table>
-<thead>
-<tr>
-<th>Developer</th>
-<th>July 2021</th>
-<th>Percent</th>
-<th>August 2021</th>
-<th>Percent</th>
-<th>Change</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>nginx</td>
-<td>444,524,631</td>
-<td>36.54%</td>
-<td>441,930,791</td>
-<td>36.48%</td>
-<td>-0.06</td>
-</tr>
-<tr>
-<td>Apache</td>
-<td>311,567,368</td>
-<td>25.61%</td>
-<td>305,180,858</td>
-<td>25.19%</td>
-<td>-0.42</td>
-</tr>
-<tr>
-<td>OpenResty</td>
-<td>75,464,874</td>
-<td>6.20%</td>
-<td>75,516,218</td>
-<td>6.23%</td>
-<td>0.03</td>
-</tr>
-<tr>
-<td>Cloudflare</td>
-<td>54,611,856</td>
-<td>4.49%</td>
-<td>55,830,630</td>
-<td>4.61%</td>
-<td>0.12</td>
-</tr>
-</tbody></table>
-<h2 id="Nginx测试组件"><a href="#Nginx测试组件" class="headerlink" title="Nginx测试组件"></a>Nginx测试组件</h2><p>Test suite for nginx我这里简称为nginx-tests，是由perl编写的nginx测试组件。通常，为了验证Nginx服务器是否搭建成功，我们会跑一下nignx-tests。在Nginx 1.14.0版本之后，nginx-tests做了巨大的变更，取消了代码中对每个Nginx版本的支持（每次Nginx release在nginx-tests中都有对应的TAGS），变更为当前主分支支持所有nginx版本。</p>
-<h2 id="Asynch-Mode-for-NGINX"><a href="#Asynch-Mode-for-NGINX" class="headerlink" title="Asynch Mode for NGINX*"></a>Asynch Mode for NGINX*</h2><p>Intel* <a href="https://01.org/intel-quickassist-technology" target="_blank" rel="noopener">QAT</a> 在Nginx的基础之上添加了基于openssl async job的异步支持，让Nginx有显著的性能提升。但它并不支持所有的nginx功能，目前它支持的功能包括HTTPS（SSL、TLS1、TLS1.2、TLS1.3）、proxy、upstream等；OS包括Linux、FreeBSD。</p>
-<p>它是也会随着Nginx更新而更新，是一个比较活跃的repo。</p>
-<h2 id="Nginx官方网址"><a href="#Nginx官方网址" class="headerlink" title="Nginx官方网址"></a>Nginx官方网址</h2><ul>
-<li><a href="https://nginx.org/" target="_blank" rel="noopener">Nginx</a></li>
-<li><a href="https://hg.nginx.org/nginx/" target="_blank" rel="noopener">Nginx source code</a></li>
-<li><a href="https://github.com/nginx/nginx/" target="_blank" rel="noopener">GitHub Mirror for Nginx</a></li>
-<li><a href="https://hg.nginx.org/nginx-tests/" target="_blank" rel="noopener">Test suite for nginx(nginx-tests)</a></li>
-<li><a href="https://github.com/nginx/nginx-tests" target="_blank" rel="noopener">GitHub Mirror for nginx-tests</a></li>
-<li><a href="https://github.com/intel/asynch_mode_nginx" target="_blank" rel="noopener">Asynch Mode for NGINX*</a></li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://nginx.org/en/" target="_blank" rel="noopener">https://nginx.org/en/</a><br><a href="https://news.netcraft.com/" target="_blank" rel="noopener">https://news.netcraft.com/</a><br><a href="https://github.com/intel/asynch_mode_nginx" target="_blank" rel="noopener">https://github.com/intel/asynch_mode_nginx</a></p>
+          <p align=left>
+<img src="images/11phases.jpg" alt="drawing" width="600"/>
+</p>
+
+
+<p>摘录：<br><a href="https://zhuanlan.zhihu.com/p/142654187" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/142654187</a></p>
 
       
     </div>
@@ -290,7 +232,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/peripherals/sensor/Sensors_1_intro/">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/tools/static_ab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -304,7 +246,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/30/peripherals/sensor/Sensors_1_intro/" class="post-title-link" itemprop="url">常用传感器简介</a>
+            <a href="/2021/10/28/tools/static_ab/" class="post-title-link" itemprop="url">编译静态Ab，ab TLS1.3</a>
         </h2>
 
         <div class="post-meta">
@@ -313,23 +255,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-08-30 20:50:08" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:08+08:00">2021-08-30</time>
+              <time title="Created: 2021-10-28 20:20:08 / Modified: 20:40:18" itemprop="dateCreated datePublished" datetime="2021-10-28T20:20:08+08:00">2021-10-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-14 17:05:59" itemprop="dateModified" datetime="2021-08-14T17:05:59+08:00">2021-08-14</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%96%E8%AE%BE/" itemprop="url" rel="index"><span itemprop="name">外设</span></a>
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
                 </span>
             </span>
 
@@ -344,59 +280,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="常见传感器种类与用途"><a href="#常见传感器种类与用途" class="headerlink" title="常见传感器种类与用途"></a>常见传感器种类与用途</h2><table>
-<thead>
-<tr>
-<th>传感器类型</th>
-<th>物理测量范围</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>加速度传感器（又称之为重力传感器或者倾角传感器）</td>
-<td>测量在所有三个物理轴向（x、y 和 z）上施加在设备上的加速力（包括重力），以 m/s2 为单位。</td>
-<td>动态检测（摇晃、倾斜等）。</td>
-</tr>
-<tr>
-<td>温度传感器</td>
-<td>以摄氏度 (°C) 为单位测量环境室温，部分传感器可以设定为华氏摄氏度。</td>
-<td>监测气温。</td>
-</tr>
-<tr>
-<td>陀螺仪</td>
-<td>测量设备在三个物理轴向（x、y 和 z）上的旋转速率，以 rad/s 为单位。</td>
-<td>旋转检测（旋转、转动等）。</td>
-</tr>
-<tr>
-<td>光传感器</td>
-<td>测量环境光级（照度），以 lx 为单位。</td>
-<td>控制屏幕亮度。</td>
-</tr>
-<tr>
-<td>磁通传感器</td>
-<td>测量所有三个物理轴向（x、y、z）上的环境地磁场，以 μT 为单位。</td>
-<td>电子罗盘</td>
-</tr>
-<tr>
-<td>气压传感器</td>
-<td>测量环境气压，以 hPa 或 mbar 为单位。</td>
-<td>监测气压变化。</td>
-</tr>
-<tr>
-<td>距离传感器（部分屏幕可以从硬件上模拟距离传感器）</td>
-<td>测量物体相对于设备显示屏幕的距离，以 cm 为单位。该传感器通常用于确定手机是否被举到人的耳边。</td>
-<td>通话过程中手机的位置。</td>
-</tr>
-<tr>
-<td>湿度传感器</td>
-<td>测量环境的相对湿度，以百分比 (%) 表示。</td>
-<td>监测露点、绝对湿度和相对湿度。</td>
-</tr>
-</tbody></table>
-<h2 id="倾角传感器"><a href="#倾角传感器" class="headerlink" title="倾角传感器"></a>倾角传感器</h2><p>倾角传感器在工业上经常用于测量物体水平，在手机里则用于测量相对物理轴向上施加给设备的加速力。根据测量物理轴向的能力，可以分为二维和三维倾角传感器。从工作原理上可以分为固体摆、液体摆及气体摆三种。</p>
-<h2 id="温度传感器"><a href="#温度传感器" class="headerlink" title="温度传感器"></a>温度传感器</h2><p>温度传感器主要有热电偶、热敏电阻、电阻温度检测器、和</p>
-<h2 id="传感器信号接口"><a href="#传感器信号接口" class="headerlink" title="传感器信号接口"></a>传感器信号接口</h2><p>一般的，传感器会采用AD、PWM、I2C（SMBUS）、SPI等接口与CPU相连。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Google Developers.传感器概览[EB/OL].<a href="https://developer.android.google.cn/guide/topics/sensors/sensors_overview?hl=zh-cn" target="_blank" rel="noopener">https://developer.android.google.cn/guide/topics/sensors/sensors_overview?hl=zh-cn</a><br>[2] 张维胜.倾角传感器原理和发展[J].传感器世界,2002.8:18-21.</p>
+          <h2 id="Build-a-static-ab"><a href="#Build-a-static-ab" class="headerlink" title="Build a static ab"></a>Build a static ab</h2><p><strong>Openssl</strong><br>./config –prefix=/root/openssl-1.1.1l/build/ no-shared</p>
+<p><strong>apr</strong><br>./configure –prefix=/root/apr-1.7.0/apr_build/</p>
+<p><strong>apr-util</strong><br>./configure –prefix=/root/apr-util-1.6.1/build/ –with-openssl=/root/openssl-1.1.1l/build –with-apr=/root/apr-1.7.0/apr_build</p>
+<p><strong>httpd</strong><br>./configure –prefix=/root/httpd-2.4.51/http_build –with-apr=/root/apr-1.7.0/apr_build –with-apr-util=/root/apr-util-1.6.1/apr_build/ –enable-ssl-staticlib-deps –enable-ssl –enable-static-ab –with-ssl=/root/openssl-1.1.1l/build</p>
+<p>After with above configuration, you can <code>make</code> a static ab to use</p>
+<h2 id="Enable-ab-with-TLS1-3"><a href="#Enable-ab-with-TLS1-3" class="headerlink" title="Enable ab with TLS1.3"></a>Enable ab with TLS1.3</h2><p>A patch is provided by abhilash, you can try:<br><a href="https://bz.apache.org/bugzilla/attachment.cgi?id=36674&amp;action=diff" target="_blank" rel="noopener">https://bz.apache.org/bugzilla/attachment.cgi?id=36674&amp;action=diff</a></p>
 
       
     </div>
@@ -416,7 +305,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/08/30/peripherals/sensor/Sensors_4_android_app/">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/tools/debug_tools/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -430,7 +319,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/30/peripherals/sensor/Sensors_4_android_app/" class="post-title-link" itemprop="url">Android传感器框架</a>
+            <a href="/2021/10/28/tools/debug_tools/" class="post-title-link" itemprop="url">调试工具</a>
         </h2>
 
         <div class="post-meta">
@@ -439,23 +328,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-08-30 20:50:08" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:08+08:00">2021-08-30</time>
+              <time title="Created: 2021-10-28 20:20:08 / Modified: 20:57:55" itemprop="dateCreated datePublished" datetime="2021-10-28T20:20:08+08:00">2021-10-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-07 17:12:51" itemprop="dateModified" datetime="2021-08-07T17:12:51+08:00">2021-08-07</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%96%E8%AE%BE/" itemprop="url" rel="index"><span itemprop="name">外设</span></a>
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
                 </span>
             </span>
 
@@ -470,151 +353,539 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>您可以利用 Android 传感器框架来访问这些传感器并获取传感器的原始数据。传感器框架是 android.hardware 软件包的一部分，包含了以下类和接口：</p>
-<p>SensorManager<br>您可以使用这个类来创建传感器服务的实例。该类提供了各种方法来访问和列出传感器，注册和取消注册传感器事件监听器，以及获取屏幕方向信息。它还提供了几个传感器常量，用于报告传感器精确度，设置数据采集频率和校准传感器。<br>Sensor<br>您可以使用这个类来创建特定传感器的实例。该类提供了各种方法来确定传感器的特性。<br>SensorEvent<br>系统使用这个类来创建传感器事件对象，该对象提供有关传感器事件的信息。传感器事件对象中包含以下信息：原始传感器数据、生成事件的传感器类型、数据的准确度和事件的时间戳。<br>SensorEventListener<br>您可以使用此接口创建两种回调方法，以在传感器值或传感器精确度发生变化时接收通知（传感器事件）。<br>在典型的应用中，您可以使用这些与传感器相关的 API 来执行两个基本任务：</p>
-<p>识别传感器和传感器特性<br>如果应用具有依赖于特定传感器类型或特性的功能，则在运行时识别传感器和传感器特性非常有用。例如，您可能希望识别设备上的所有传感器，以便于停用依赖于不存在的传感器的应用功能。同样，您可能希望识别特定类型的所有传感器，以便选择可以为应用带来最佳性能的传感器实现。</p>
-<p>监控传感器事件<br>您可以通过监控传感器事件来获取原始传感器数据。每当传感器检测到它所测量的参数发生变化时，就会发生传感器事件。传感器事件为您提供 4 项信息：触发事件的传感器的名称、事件的时间戳、事件的准确度以及触发事件的原始传感器数据。</p>
-<p>识别传感器和传感器特性<br>Android 传感器框架提供了几个方法，可让您在运行时轻松确定设备上有哪些传感器。该 API 还提供了相关方法来确定每个传感器的特性，例如最大量程、分辨率和功率要求。</p>
-<p>要识别设备上的传感器，您首先需要获得对传感器服务的引用。为此，您可以调用 getSystemService() 方法并传入 SENSOR_SERVICE 参数来创建 SensorManager 类的实例。例如：</p>
-<p>Kotlin<br>Java</p>
-<pre><code>private SensorManager sensorManager;
-...
-sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);</code></pre><p>接下来，您可以调用 getSensorList() 方法并使用 TYPE_ALL 常量来获取设备上每种传感器的列表。例如：</p>
-<p>Kotlin<br>Java</p>
-<pre><code>List&lt;Sensor&gt; deviceSensors = sensorManager.getSensorList(Sensor.TYPE_ALL);</code></pre><p>如果您想列出特定类型的所有传感器，可以使用其他常量来代替 TYPE_ALL，例如 TYPE_GYROSCOPE、TYPE_LINEAR_ACCELERATION 或 TYPE_GRAVITY。</p>
-<p>您还可以使用 getDefaultSensor() 方法并传入特定传感器的类型常量，来确定设备上是否存在相关类型的传感器。如果设备上有多个特定类型的传感器，则必须将其中一个指定为默认传感器。如果没有指定默认传感器，则该方法调用会返回 null，这表示设备没有该类型的传感器。例如，以下代码会检查设备上是否有磁力计：</p>
-<p>Kotlin<br>Java</p>
-<pre><code>private SensorManager sensorManager;
-...
-sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-if (sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null){
-    // Success! There&apos;s a magnetometer.
-} else {
-    // Failure! No magnetometer.
-}</code></pre><p>注意：Android 对于设备制造商在其 Android 设备中内置的传感器类型没有特殊要求，因此设备可以采用各种传感器配置。</p>
-<p>除了列出设备上的传感器之外，您还可以使用 Sensor 类的公共方法确定单个传感器的功能和属性。如果您希望应用根据设备上可用的传感器或传感器功能表现出不同的行为，这会非常有用。例如，您可以使用 getResolution() 和 getMaximumRange() 方法来获得传感器的分辨率和最大量程。您也可以使用 getPower() 方法来获得传感器的电源要求。</p>
-<p>如果您希望针对不同制造商的传感器或传感器的不同版本优化您的应用，有两种公共方法特别有用。例如，如果您的应用需要监控用户手势（例如倾斜和摇晃），您可以针对带有特定供应商的重力传感器的新款设备创建一组数据过滤规则和优化配置，而针对没有重力传感器、只有加速度计的设备创建另一组数据过滤规则和优化配置。以下代码示例展示了如何使用 getVendor() 和 getVersion() 方法来执行此操作。在本例中，我们要查找一个将 Google LLC 列为供应商、版本号为 3 的重力传感器。如果设备上没有该传感器，我们会尝试使用加速度计。</p>
-<p>Kotlin<br>Java</p>
-<pre><code>private SensorManager sensorManager;
-private Sensor mSensor;
+          <p>ltrace</p>
+<p>gdb</p>
+<p>strace</p>
+<p>pstack</p>
+<p>sar</p>
+<p>perf火焰图</p>
 
-...
+      
+    </div>
 
-sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-mSensor = null;
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-if (sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY) != null){
-    List&lt;Sensor&gt; gravSensors = sensorManager.getSensorList(Sensor.TYPE_GRAVITY);
-    for(int i=0; i&lt;gravSensors.size(); i++) {
-        if ((gravSensors.get(i).getVendor().contains(&quot;Google LLC&quot;)) &amp;&amp;
-           (gravSensors.get(i).getVersion() == 3)){
-            // Use the version 3 gravity sensor.
-            mSensor = gravSensors.get(i);
-        }
-    }
-}
-if (mSensor == null){
-    // Use the accelerometer.
-    if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null){
-        mSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-    } else{
-        // Sorry, there are no accelerometers on your device.
-        // You can&apos;t play this game.
-    }
-}</code></pre><p>另一个有用的方法是 getMinDelay()，它会返回传感器可用于检测数据的最小时间间隔（以微秒为单位）。如果 getMinDelay() 方法返回非零值，则表示相应传感器为流式传感器。流式传感器是在 Android 2.3（API 级别 9）中引入的，这类传感器会定期检测数据。如果调用 getMinDelay() 方法时，传感器返回 0，则说明传感器不是流式传感器，因为它仅在所检测的参数发生变化时才会报告数据。</p>
-<p>getMinDelay() 方法可用于确定传感器采集数据的最高频率。如果应用中的某些功能需要较高的数据采集频率或流式传感器，则可以使用此方法确定传感器是否满足这些要求，然后相应地启用或停用应用中的相关功能。</p>
-<p>注意：传感器的最高数据采集频率不一定是传感器框架向应用提交传感器数据的频率。传感器框架通过传感器事件报告数据，而应用接收传感器事件的频率受多个因素的影响。如需了解详情，请参阅监控传感器事件。</p>
-<p>监控传感器事件<br>要监控原始传感器数据，您需要实现两个通过 SensorEventListener 接口公开的回调方法：onAccuracyChanged() 和 onSensorChanged()。Android 系统会在发生以下情况时调用这两个方法：</p>
-<p>传感器的准确度发生了变化。<br>在这种情况下，系统会调用 onAccuracyChanged() 方法，为您提供对于发生变化的 Sensor 对象的引用以及传感器的新准确度。准确度由以下 4 个状态常量之一表示：SENSOR_STATUS_ACCURACY_LOW、SENSOR_STATUS_ACCURACY_MEDIUM、SENSOR_STATUS_ACCURACY_HIGH 或 SENSOR_STATUS_UNRELIABLE。</p>
-<p>传感器报告了新值。<br>在这种情况下，系统会调用 onSensorChanged() 方法，为您提供 SensorEvent 对象。SensorEvent 对象包含关于新传感器数据的信息，包括：数据的准确度、生成数据的传感器、生成数据的时间戳以及传感器记录的新数据。</p>
-<p>以下代码展示了如何使用 onSensorChanged() 方法监控光传感器的数据。在本示例中，原始传感器数据作为 sensor_data 显示在 main.xml 文件中定义的 TextView 中。</p>
-<p>Kotlin<br>Java</p>
-<pre><code>public class SensorActivity extends Activity implements SensorEventListener {
-    private SensorManager sensorManager;
-    private Sensor mLight;
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/compress/E0_compression/">
 
-    @Override
-    public final void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
 
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-    }
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/28/compress/E0_compression/" class="post-title-link" itemprop="url">解压缩算法简介</a>
+        </h2>
 
-    @Override
-    public final void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Do something here if sensor accuracy changes.
-    }
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
 
-    @Override
-    public final void onSensorChanged(SensorEvent event) {
-        // The light sensor returns a single value.
-        // Many sensors return 3 values, one for each axis.
-        float lux = event.values[0];
-        // Do something with this sensor value.
-    }
+              <time title="Created: 2021-10-28 20:07:55 / Modified: 20:48:33" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:55+08:00">2021-10-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/compress/" itemprop="url" rel="index"><span itemprop="name">compress</span></a>
+                </span>
+            </span>
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
-    }
+          
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        sensorManager.unregisterListener(this);
-    }
-}</code></pre><p>在本示例中，在调用 registerListener() 方法时指定了默认数据延迟 (SENSOR_DELAY_NORMAL)。数据延迟（或采样率）控制传感器事件通过 onSensorChanged() 回调方法发送到应用的时间间隔。默认数据延迟采用 200,000 微秒的延迟，适用于监控典型的屏幕方向变化。您可以指定其他数据延迟，比如 SENSOR_DELAY_GAME（延迟 20,000 微秒）、SENSOR_DELAY_UI（延迟 60,000 微秒），或 SENSOR_DELAY_FASTEST（延迟 0 微秒）。从 Android 3.0（API 级别 11）开始，您还可以将延迟指定为以微秒为单位的绝对值。</p>
-<p>您指定的延迟只是建议的延迟。Android 系统和其他应用可以更改此延迟。最佳做法是指定尽可能大的延迟，因为系统通常会使用比您指定的延迟更小的延迟（也就是说，您应该选择能够满足应用需求的最低采样率）。使用更大的延迟可以降低处理器的负载，从而降低功耗。</p>
-<p>没有任何公共方法可以确定传感器框架向您的应用发送传感器事件的频率，但是，您可以使用与每个传感器事件关联的时间戳来计算几个事件的采样率。采样率（延迟）一旦设置，就不应该再更改。如果由于某种原因确实需要更改延迟，则必须取消注册再重新注册传感器监听器。</p>
-<p>另外还需要注意的是，本示例使用 onResume() 和 onPause() 回调方法来注册和取消注册传感器事件监听器。最佳的做法是始终停用不需要的传感器，特别是在活动处于暂停状态时。如果不这样做，可能会在几小时内将电池电量耗尽，因为有些传感器的电量需求很大，可以很快耗尽电池电量。当屏幕关闭时，系统不会自动停用传感器。</p>
-<p>处理不同的传感器配置<br>Android 没有为设备指定标准的传感器配置，这意味着设备制造商可以在其 Android 设备中采用任何想要的传感器配置。因此，设备可以包含采用各种配置的各种传感器。如果您的应用依赖于特定类型的传感器，则必须确保设备上存在该传感器，这样您的应用才能成功运行。</p>
-<p>有两种方法可以确保设备上存在特定的传感器：</p>
-<p>在运行时检测传感器，并根据需要启用或停用应用功能。<br>使用 Google Play 过滤器定位具有特定传感器配置的设备。<br>下面将分别讨论这两种方法。</p>
-<p>在运行时检测传感器<br>如果您的应用使用特定类型的传感器，但不依赖于它，则可以使用传感器框架在运行时检测传感器，然后根据需要停用或启用应用功能。例如，导航应用可能会使用温度传感器、压力传感器、GPS 传感器和地磁场传感器来显示温度、气压、位置和罗盘方位。如果设备没有压力传感器，您可以使用传感器框架在运行时检测压力传感器的缺失，然后停用应用界面中显示压力的部分。例如，以下代码会检查设备上是否有压力传感器：</p>
-<p>Kotlin<br>Java</p>
-<pre><code>private SensorManager sensorManager;
-...
-sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-if (sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE) != null){
-    // Success! There&apos;s a pressure sensor.
-} else {
-    // Failure! No pressure sensor.
-}</code></pre><p>使用 Google Play 过滤器定位特定的传感器配置<br>如果您要在 Google Play 上发布应用，您可以在清单文件中使用 <uses-feature> 元素，以对不具备适合您应用的传感器配置的设备屏蔽您的应用。<uses-feature> 元素有几个硬件描述符，可让您根据是否存在特定传感器来过滤应用。您可以列出的传感器包括：加速度计、气压计、罗盘（地磁场）、陀螺仪、光传感器和距离传感器。以下清单示例条目会对没有加速度计的设备屏蔽应用：</p>
-<pre><code>&lt;uses-feature android:name=&quot;android.hardware.sensor.accelerometer&quot;
-              android:required=&quot;true&quot; /&gt;</code></pre><p>如果您将此元素和描述符添加到应用的清单中，那么只有当用户的设备具有加速度计时，他们才会在 Google Play 上看到您的应用。</p>
-<p>仅当您的应用完全依赖于特定传感器时，才应将描述符设置为 android:required=”true”。如果您的应用使用某种传感器来实现某项功能，但没有该传感器也可以运行，那么您就应该在 <uses-feature> 元素中列出该传感器，但将描述符设置为 android:required=”false”。这样可以确保设备即使没有该传感器也可以安装您的应用。这也是帮助您跟踪应用所使用的功能的最佳项目管理方法。请记住，如果您的应用使用特定的传感器，但没有该传感器也能运行，那么您就应该在运行时检测传感器，并根据需要停用或启用应用功能。</p>
-<p>传感器坐标系<br>通常，传感器框架使用标准的 3 轴坐标系来表示数据值。对于大多数传感器，当设备处于默认屏幕方向时，会相对于设备屏幕来定义坐标系（参见图 1）。当设备处于默认屏幕方向时，X 轴为水平向右延伸，Y 轴为垂直向上延伸，Z 轴为垂直于屏幕向外延伸。在此坐标系中，屏幕后面的坐标将具有负 Z 值。以下传感器使用此坐标系：</p>
-<p>图 1. Sensor API 使用的坐标系（相对于设备）。</p>
-<p>加速度传感器<br>重力传感器<br>陀螺仪<br>线性加速度传感器<br>地磁场传感器<br>关于此坐标系，特别需要注意的一点就是当设备的屏幕方向改变时，坐标轴不会转换，也就是说，传感器的坐标系不会随着设备的移动而改变。此行为与 OpenGL 坐标系的行为是相同的。</p>
-<p>还需要注意的一点是，您的应用不能假设设备的自然（默认）屏幕方向是竖屏。许多平板设备的自然屏幕方向为横屏。传感器坐标系始终基于设备的自然屏幕方向。</p>
-<p>最后，如果您的应用将传感器数据对应到屏幕显示，您需要使用 getRotation() 方法确定屏幕的旋转度，然后使用 remapCoordinateSystem() 方法将传感器坐标映射到屏幕坐标。即使您的清单指定了仅限竖屏显示，您也需要这样做。</p>
-<p>注意：有些传感器和方法使用的坐标系基于世界参照系（而不是设备参照系）。这些传感器和方法返回的数据表示设备相对于地球的运动或位置。如需了解详情，请参阅 getOrientation() 方法、getRotationMatrix()方法、屏幕方向传感器和旋转矢量传感器。</p>
-<p>访问和使用传感器的最佳做法<br>在设计传感器实现时，请务必遵循本节介绍的指导原则。若要使用传感器框架访问传感器和采集传感器数据，建议将这些指导原则视为最佳做法。</p>
-<p>仅在前台采集传感器数据<br>在搭载 Android 9（API 级别 28）或更高版本的设备上，在后台运行的应用具有以下限制：</p>
-<p>采用连续报告模式的传感器（如加速度计和陀螺仪）不会收到事件。<br>使用变化时触发或单次报告模式的传感器不会收到事件。<br>考虑到这些限制，最好是在应用于前台运行或作为前台服务的一部分时检测传感器事件。</p>
-<p>取消注册传感器监听器<br>请确保在不使用传感器或传感器活动暂停时取消注册传感器的监听器。注册传感器监听器后，只要不取消注册传感器，那么即使监听器的活动已暂停，传感器仍会继续采集数据并消耗电池资源。以下代码展示了如何使用 onPause() 方法来取消注册监听器：</p>
-<p>Kotlin<br>Java</p>
-<pre><code>private SensorManager sensorManager;
-...
-@Override
-protected void onPause() {
-    super.onPause();
-    sensorManager.unregisterListener(this);
-}</code></pre><p>如需了解详细信息，请参阅 unregisterListener(SensorEventListener)。</p>
-<p>使用 Android 模拟器进行测试<br>Android Emulator 包含一组虚拟传感器控件，可用来测试各种传感器，如加速度计、环境温度传感器、磁力计、距离传感器、光传感器等。</p>
-<p>模拟器会与运行 SdkControllerSensor 应用的 Android 设备建立连接。请注意，此应用仅适用于搭载 Android 4.0（API 级别 14）或更高版本的设备。（如果设备搭载的是 Android 4.0，则必须安装修订版本 2。）SdkControllerSensor 应用会监控设备上传感器的变化，并将相关数据传输到模拟器。然后，模拟器会根据从设备传感器收到的新值做出相应的转变。</p>
-<p>您可以在以下位置查看 SdkControllerSensor 应用的源代码：</p>
-<pre><code>$ your-android-sdk-directory/tools/apps/SdkController</code></pre><p>要在设备和模拟器之间传输数据，请按以下步骤操作：</p>
-<p>检查设备上是否启用了 USB 调试功能。<br>使用 USB 数据线将设备连接到开发计算机。<br>在设备上启动 SdkControllerSensor 应用。<br>在应用中，选择您要模拟的传感器。<br>运行以下 adb 命令：</p>
-<pre><code>$ adb forward tcp:1968 tcp:1968</code></pre><p>启动模拟器。现在，您应该可以通过移动设备将转变应用到模拟器。<br>注意：如果您对物理设备的移动没有让模拟器发生转变，请尝试再次运行第 5 步中的 adb 命令。</p>
-<p>如需了解详情，请参阅 Android 模拟器指南。</p>
-<p>请勿阻塞 onSensorChanged() 方法<br>传感器数据可以以很高的频率变化，这意味着系统可能会频繁调用 onSensorChanged(SensorEvent) 方法。最佳的做法是在 onSensorChanged(SensorEvent) 方法中执行尽可能少的任务，以免阻塞它。如果您的应用要求您过滤或删减传感器数据，则应在 onSensorChanged(SensorEvent) 方法之外执行该任务。</p>
-<p>避免使用已弃用的方法或传感器类型<br>有一些方法和常量已被弃用。特别是 TYPE_ORIENTATION 传感器类型已被弃用。应改用 getOrientation() 方法来获取屏幕方向数据。同样，TYPE_TEMPERATURE 传感器类型也已被弃用。您应在搭载 Android 4.0 的设备上改用 TYPE_AMBIENT_TEMPERATURE 传感器类型。</p>
-<p>使用传感器之前应先进行验证<br>在尝试从传感器采集数据之前，应始终先验证设备上是否存在该传感器。不要因为某种传感器很常用就假设它存在。没有人要求设备制造商必须在其设备中提供任何特定的传感器。</p>
-<p>谨慎选择传感器延迟<br>使用 registerListener() 方法注册传感器时，请务必选择适合您的应用或用例的提交频率。传感器能以非常高的频率提供数据。允许系统发送您不需要的额外数据，会浪费系统资源和耗费电池电量。</p>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://stackoverflow.com/questions/28635496/difference-lz77-vs-lz4-vs-lz4hc-compression-algorithms" target="_blank" rel="noopener">https://stackoverflow.com/questions/28635496/difference-lz77-vs-lz4-vs-lz4hc-compression-algorithms</a></p>
+<p>All is lz</p>
+<p>(lz4 lz77 lzw)</p>
+<p>deflate=lz77+halfman. : <a href="https://blog.csdn.net/blues1021/article/details/45165777/" target="_blank" rel="noopener">https://blog.csdn.net/blues1021/article/details/45165777/</a><br><a href="https://zlib.net/feldspar.html" target="_blank" rel="noopener">https://zlib.net/feldspar.html</a></p>
+<p>2 DEMO<br>2.1 DEFLATE<br><a href="https://github.com/madler/zlib/blob/master/contrib/puff/puff.c" target="_blank" rel="noopener">https://github.com/madler/zlib/blob/master/contrib/puff/puff.c</a></p>
+<p><a href="http://en.wikipedia.org/wiki/DEFLATE#Encoder_implementations" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/DEFLATE#Encoder_implementations</a></p>
+<p>PIGZ</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/compress/Benchmark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/28/compress/Benchmark/" class="post-title-link" itemprop="url">解压缩Benchmark简介</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-28 20:07:55 / Modified: 20:47:31" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:55+08:00">2021-10-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/compress/" itemprop="url" rel="index"><span itemprop="name">compress</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>1 Calgary Corpus<br>The Calgary Corpus is the most referenced corpus in the data compression field exspecially for text compression and is the de facto standard for lossless compression evaluation.<br>The corpus was founded in 1987 by Ian Witten, Timothy Bell and John Cleary for their research paper “MODELING FOR TEXT COMPRESSION” at the University of Calgary, Canada. The research paper was published in 1989 at ACM Computing Surveys. In 1990 the corpus was used in their book “Text compression”.<br>The corpus consists of 18 files (Large Calgary Corpus: bib, book1, book2, geo, news, obj1, obj2, paper1, paper2, paper3, paper4, paper5, paper6, pic, progc, progl, progp and trans), but only 14 files were used in the paper and book (Standard Calgary Corpus: all files except paper3, paper4, paper5 and paper6).<br>The corpus is available below and at <a href="ftp://ftp.cpsc.ucalgary.ca/pub/projects/text.compression.corpus">ftp://ftp.cpsc.ucalgary.ca/pub/projects/text.compression.corpus</a>.</p>
+<p>The contexts of the readme-file of the Calgary Corpus is listed below:</p>
+<p>Welcome to the Calgary/Canterbury text compression corpus. This corpus is used in the book</p>
+<p>  Bell, T.C., Cleary, J.G. and Witten, I.H. Text compression.<br>  Prentice Hall, Englewood Cliffs, NJ, 1990</p>
+<p>and in the survey paper</p>
+<p>  Bell, T.C., Witten, I.H. and Cleary, J.G. “Modeling for text<br>  compression,” Computing Surveys 21(4): 557-591; December 1989,</p>
+<p>to evaluate the practical performance of various text compression schemes. Several other researchers are now using the corpus to evaluate text compression schemes.<br>Nine different types of text are represented, and to confirm that the performance of schemes is consistent for any given type, many of the types have more than one representative.  Normal English, both fiction and non-fiction, is represented by two books and papers (labeled book1, book2, paper1, paper2, paper3, paper4, paper5, paper6).  More unusual styles of English writing are found in a bibliography (bib) and a batch of unedited news articles (news). Three computer programs represent artificial languages (progc, progl, progp). A transcript of a terminal session (trans) is included to indicate the increase in speed that could be achieved by applying compression to a slow line to a terminal.  All of the files mentioned so far use ASCII encoding. Some non-ASCII files are also included: two files of executable code (obj1, obj2), some geophysical data (geo), and a bit-map black and white picture (pic).  The file geo is particularly difficult to compress because it contains a wide range of data values, while the file pic is highly compressible because of large amounts of white space in the picture, represented by long runs of zeros.<br>More details of the individual texts are given in the book mentioned above. Both book and paper give the results of compression experiments on these texts.<br>The corpus itself constitutes files bib, book1, book2, geo, news, obj1, obj2, paper1, paper2, paper3, paper4, paper5, paper6, pic, progc, progl, progp and trans.  (The book and paper above do not give results for files paper3, paper4, paper5 or paper6.)<br>The directory “index” contains the sizes of the files and some information about where they came from.</p>
+<p>largecalgarycorpus.zip<br>calgarycorpus.zip</p>
+<p>2 Silesia Corpus<br>Silesia compression corpus</p>
+<p>Standard lossless data compression corpora<br>Three well-known data sets are used by researchers in the universal lossless data compression field. The first one, the Calgary corpus, was introduced in 1989 by Bell et al.. The files in the corpus were chosen to cover up the typical types of data used in computer processing. This corpus is rather old, and it contains some types of data which went out of use, but the corpus is still a good benchmark used by many authors. The corpora proposed later, the Canterbury corpus and the large Canterbury corpus, contain files of similar sizes, less than 5 MB.</p>
+<p>Over the years of using of these corpora some observations have proven their important disadvantages. The most important in our opinion are:</p>
+<p>the lack of large files—at present we work with much larger files;<br>an over-representation of English-language texts—there are only English<br>files in the three corpora, while in practice many texts are written in different languages;<br>the lack of files being a concatenation of large projects<br>(e.g., programming projects)—the application sizes grow quite fast and compressing each of the source files separately is impractical presently; a more convenient way is to concatenate the whole project and to compress the resulting file;<br>absence of medical images—the medical images must not undergo a lossy compression because of law regulations;<br>the lack of databases that currently grow considerably fast—databases are perhaps the fastest growing type of data.</p>
+<p>Silesia corpus<br>The intention of the Silesia corpus is to provide a data set of files that covers the typical data types used nowadays. The sizes of the files are between 6 MB and 51 MB.</p>
+<p>The chosen files are of different types and come from several sources. In our opinion, nowadays the two fastest growing types of data are multimedia and databases. The former are typically compressed with lossy methods so we do not include them in the corpus. The database files, osdb, sao, nci, come from three different fields. The first one is a sample database from an open source project that is intended to be used as a standard, free database benchmark. The second one, sao, is one of the astronomical star catalogues. This is a binary database composed of records of complex structure. The last one, nci, is a part of the chemical database of structures.</p>
+<p>The sizes of computer programs are also growing rapidly. The standard corpora include only single, small routines, both in source and object code. Today it is almost impractical to compress every single source code file separately. The projects are composed of hundreds or thousands files, so it is a common habit to compress it all together. We often can achieve a better compression ratio if we compress a concatenated file of similar contents than the small separate ones. This trend is reflected in including a samba file. Besides the source codes, there is also a need to store the executables. We decided to include two files: ooffice and mozilla. The first one is a single medium-sized executable for the Windows system. The second is a concatenation of the whole application for Tru64 Unix system composed of executables, archives, texts, HTML files, and other.</p>
+<p>There are also types of images that cannot be compressed loosely—the medical images. The sizes of such files are also huge and we include two examples of them in the corpus. The first file, x-ray, is an X-ray picture of a child’s hand. The second file, mr, is a magnetic resonance, three dimensional image of a head.</p>
+<p>The standard corpora contain text files. Moreover, these files are typically the largest files of them, but in our opinion there is a need to test the compression efficiency also on the larger ones stored in different file types. We propose three such files. The first, dickens, is a collection of some works by Charles Dickens that can be found in the Project Gutenberg. This is a plain text file. The second one, reymont, is a book Ch�opi by W�adys�aw Reymont stored in a PDF file. The PDF files can be internally-compressed but the quality of this build-in compression is rather poor, and much better results can be obtained when we compress an uncompressed PDF file. Because of this we enclose the uncompressed version. The last text file, webster, is an electronic version of The 1913 Webster Unabridged Dictionary taken from the Project Gutenberg. The file is stored in the HTML format. The last file of the new corpus, xml, is a concatenation of 21 XML files. The XML standard is designed to be a universal file format for storing documents, so we decided to enclose it.</p>
+<p>Silesia Corpus contents<br>Filename    Description    Type    Source    Raw size [B]    Bzipped size [B]<br>dickens    Collected works of Charles Dickens    English text    Project Gutenberg    10,192,446    2,799,528<br>mozilla    Tarred executables of Mozilla 1.0 (Tru64 UNIX edition)    exe    Mozilla Project    51,220,480    17,914,392<br>mr    Medical magnetic resonanse image    picture    Hospital image    9,970,564    2,441,280<br>nci    Chemical database of structures    database    CACTVS Chemical Information Services at LMC/NCI    33,553,445    1,812,734<br>ooffice    A dll from Open Office.org 1.01    exe    Open Office    6,152,192    2,862,526<br>osdb    Sample database in MySQL format from Open Source Database Benchmark    database    Open Source Database Benchmark Project    10,085,684    2,802,792<br>reymont    Text of the book Ch�opi by W�adys�aw Reymont    Polish pdf    Virtual Library of Polish Literature    6,627,202    1,246,230<br>samba    Tarred source code of Samba 2-2.3    src    Samba Project    21,606,400    4,549,790<br>sao    The SAO star catalog    bin data    Astronomical Catalogs and Catalog Formats    7,251,944    4,940,524<br>webster    The 1913 Webster Unabridged Dictionary    html    Project Gutenberg    41,458,703    8,644,714<br>xml    Collected XML files    html    XMLPPM: XML-Conscious PPM Compression    5,345,280    441,186<br>x-ray    X-ray medical picture<br>Hospital image    8,474,240    4,051,112<br>Total</p>
+<p>211,938,580    54,506,808<br>Silesia Corpus details<br>dickens<br>Charles Dickens wrote many novels. The file is a concatenation of some, fourteen, of his works that can be found in the Project Gutenberg (A Child’s History Of England, All The Year Round: Contributions, American Notes, The Battle Of Life, Bleak House, A Christmas Carol, David Copperfield, Dombey And Son, Doctor Marigold, Going Into Society, George Silverman’s Explanation, Barnaby Rudge: a tale of the Riots of ‘eighty, The Chimes, The Cricket On The Hearth). The file is a simple text.</p>
+<p>MD5: 88334708559f6db57d79096bc0aca07e</p>
+<p>mozilla<br>A Mozilla 1.0 open source web browser was installed on the Tru64 UNIX operating system and then the contents of the Mozilla.org directory were tarred. There are 525 files of such types as: executables, jar archives, HTML, XML, text, and others.</p>
+<p>MD5: c7789a2097f1ff944b0c737430a339b3</p>
+<p>mr<br>A magnetic resonanse medical picture of a head. This file is stored is DICOM format and contains 19 planes.</p>
+<p>MD5: 38e623e3093b7bf2003ca4b1bbc19927</p>
+<p>nci<br>The chemical databases of strucures contain information of structures, their components, 2D and/or 3D coordinates, properites, etc. The file is a part of the August 2000 2D File stored in an SDF format which is common file format developped to handle a list of molecular structures associated with properties. The original database is of size 982MB so we had to truncate it to be suitable for a part of the corpus. The 32MB piece (rounded down to the nearest end of the record), we have chosen, is taken from the middle of the original file (starting at the first record after leaving 400MB of data).</p>
+<p>MD5: 31f85bc8706f3c921104e7c169e2e2e1</p>
+<p>ooffice<br>An Open Office is an open source project, which is composed of the word processor, spreadsheet program, presentation maker, and graphical program. The file is a dynamic linked linbrary from version 1.01.</p>
+<p>MD5: 573c4ae915e36631d8f2dcffb9b9b66d</p>
+<p>osdb<br>An Open Source Database Benchmark is a project invented to provide a free test for database systems. One of the parts of the project are sample databases. The 40MB benchmark was run on the MySQL 3.23 server. The file is one of the MySQL database files, hundred.med.</p>
+<p>MD5: e734b0c48e6a982adfb5802da3032ecd</p>
+<p>reymont<br>A book Ch�opi by W�adys�aw Reymont was honoured the Nobel Price in 1924. The text of the book was taken from the Virtual Library of Polish Literature. Then it was converted to the LaTeX files from which the uncompressed PDF file was produced. The file is uncompressed due to the fact the built-in compression in PDF format is rather poor, and much better results can be obtained when we compress the uncompressed PDF files.</p>
+<p>MD5: d8f54d78105079775f32d76dc55fc671</p>
+<p>samba<br>Samba is an open souce project that is intended to be a free alternative to the SMB/CIFS clients. The file contains tarred source code (also documentation, graphics) of the Samba 2.2-3 version.</p>
+<p>MD5: 154eaea7ea70e89f6339ff0abf4112ca</p>
+<p>sao<br>There are many star catalogs containing the data of sky objects. The chosen one, SAO catalog, is suitable especially for the amator astronomers. It contains the information about 258,996 stars, and is composed of binary records.</p>
+<p>MD5: 79e95a22e18cd82b7e42bf91b380d30b</p>
+<p>webster<br>The 1913 Webster Unabridged Dictionary is an English dictionary stored in a rather simple HTML. The file is a concatenation of files that can be obtained from Project Gutenberg.</p>
+<p>MD5: 474931ad907ac27bf962c75ded46c069</p>
+<p>xml<br>The XML is an incomming standard of document format. The importance of XML is still growing. The file is a corpus prepared for XMLPPM: XML-Conscious PPM Compression. This is a concatenation of all, eleven, files.</p>
+<p>MD5: 9b09c0c80104adb8aae910b7d7db003e</p>
+<p>x-ray<br>An X-ray medical picture of child’s hand. This is a 12-bit gray scaled image.</p>
+<p>MD5: 9baec32ad14ec3eff487d254382cb91c</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/http/E0_http_protol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/28/http/E0_http_protol/" class="post-title-link" itemprop="url">http/E0_http_protol</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-28 20:07:55" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:55+08:00">2021-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-09 13:11:10" itemprop="dateModified" datetime="2021-08-09T13:11:10+08:00">2021-08-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HTTP-0-9"><a href="#HTTP-0-9" class="headerlink" title="HTTP 0.9"></a>HTTP 0.9</h1><p>怎么来的，怎么发展的。</p>
+<p><a href="https://www.cnblogs.com/an-wen/p/11180076.html" target="_blank" rel="noopener">https://www.cnblogs.com/an-wen/p/11180076.html</a></p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc7231" target="_blank" rel="noopener">https://datatracker.ietf.org/doc/html/rfc7231</a></p>
+<p><a href="https://blog.csdn.net/qq_29405933/article/details/84315254" target="_blank" rel="noopener">https://blog.csdn.net/qq_29405933/article/details/84315254</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/http/E0_http_encoding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/28/http/E0_http_encoding/" class="post-title-link" itemprop="url">http/E0_http_encoding</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-28 20:07:55" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:55+08:00">2021-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-28 15:15:03" itemprop="dateModified" datetime="2021-06-28T15:15:03+08:00">2021-06-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://blog.csdn.net/liuxiao723846/article/details/107432433" target="_blank" rel="noopener">https://blog.csdn.net/liuxiao723846/article/details/107432433</a></p>
+<p>HTTP 协议中的 Transfer-Encoding<br>Content-Encoding 通常用于对实体内容进行压缩编码</p>
+<p>HTTP+Gzip</p>
+<p>content-coding = “x-gzip” | “x-compress” | token<br>x-gzip<br>An encoding format produced by the file compression program<br>“gzip” (GNU zip) developed by Jean-loup Gailly. This format is<br>typically a Lempel-Ziv coding (LZ77) with a 32 bit CRC.<br>HEADER    GZIP CONTENT    CRC</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/http/E0_http2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/28/http/E0_http2/" class="post-title-link" itemprop="url">http/E0_http2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-28 20:07:55" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:55+08:00">2021-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-26 14:41:42" itemprop="dateModified" datetime="2021-08-26T14:41:42+08:00">2021-08-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://kamranahmed.info/blog/2016/08/13/http-in-depth/" target="_blank" rel="noopener">https://kamranahmed.info/blog/2016/08/13/http-in-depth/</a><br><a href="https://www.ruanyifeng.com/blog/2016/08/http.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2016/08/http.html</a><br><a href="https://www.w3.org/Protocols/HTTP/AsImplemented.html" target="_blank" rel="noopener">https://www.w3.org/Protocols/HTTP/AsImplemented.html</a><br><a href="https://datatracker.ietf.org/doc/html/rfc1945" target="_blank" rel="noopener">https://datatracker.ietf.org/doc/html/rfc1945</a></p>
+<p><a href="https://www.cnblogs.com/hugetong/p/12694322.html" target="_blank" rel="noopener">https://www.cnblogs.com/hugetong/p/12694322.html</a></p>
+<p>INCLUDING <a href="https://datatracker.ietf.org/doc/html/rfc7541#appendix-B" target="_blank" rel="noopener">https://datatracker.ietf.org/doc/html/rfc7541#appendix-B</a></p>
+<p><a href="https://github.com/johnshajiang/blog/wiki/Exploring-HTTP-2:-Deploy-testing-server-and-client" target="_blank" rel="noopener">https://github.com/johnshajiang/blog/wiki/Exploring-HTTP-2:-Deploy-testing-server-and-client</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/tls-openssl/openssl_gen_cetificate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/28/tls-openssl/openssl_gen_cetificate/" class="post-title-link" itemprop="url">Openssl搞定TLS1.3的证书</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-28 20:07:42 / Modified: 21:04:36" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:42+08:00">2021-10-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tls-openssl/" itemprop="url" rel="index"><span itemprop="name">tls-openssl</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>References：</p>
+<p><a href="https://phoenixnap.com/kb/generate-openssl-certificate-signing-request" target="_blank" rel="noopener">https://phoenixnap.com/kb/generate-openssl-certificate-signing-request</a></p>
+<p><a href="https://github.com/johnshajiang/blog/wiki/Exploring-TLS-1.3-with-OpenSSL-1.1.1" target="_blank" rel="noopener">https://github.com/johnshajiang/blog/wiki/Exploring-TLS-1.3-with-OpenSSL-1.1.1</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/tls-openssl/openssl_engine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/28/tls-openssl/openssl_engine/" class="post-title-link" itemprop="url">Openssl Engine</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-28 20:07:42 / Modified: 21:03:30" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:42+08:00">2021-10-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tls-openssl/" itemprop="url" rel="index"><span itemprop="name">tls-openssl</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>EVP Intro</p>
+<p>Openssl engine最好的资料是它自己的文档，有空我翻译一下，有需要也可以直接给我邮件，督促我翻译，哈哈。</p>
+<p>engine用的是EVP标准接口。</p>
 
       
     </div>
@@ -632,6 +903,9 @@ protected void onPause() {
 
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -698,20 +972,20 @@ protected void onPause() {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

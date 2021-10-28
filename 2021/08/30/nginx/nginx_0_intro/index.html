@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://news.netcraft.com/images/2021/08/wss-share.png">
 <meta property="article:published_time" content="2021-08-30T12:50:17.598Z">
-<meta property="article:modified_time" content="2021-08-30T13:02:05.741Z">
+<meta property="article:modified_time" content="2021-09-25T03:34:40.620Z">
 <meta property="article:author" content="Zhang Peng">
 <meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary">
@@ -187,10 +187,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-08-30 20:50:17 / Modified: 21:02:05" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
+              <time title="Created: 2021-08-30 20:50:17" itemprop="dateCreated datePublished" datetime="2021-08-30T20:50:17+08:00">2021-08-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-25 11:34:40" itemprop="dateModified" datetime="2021-09-25T11:34:40+08:00">2021-09-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -267,8 +273,7 @@
 <h2 id="Nginx测试组件"><a href="#Nginx测试组件" class="headerlink" title="Nginx测试组件"></a>Nginx测试组件</h2><p>Test suite for nginx我这里简称为nginx-tests，是由perl编写的nginx测试组件。通常，为了验证Nginx服务器是否搭建成功，我们会跑一下nignx-tests。在Nginx 1.14.0版本之后，nginx-tests做了巨大的变更，取消了代码中对每个Nginx版本的支持（每次Nginx release在nginx-tests中都有对应的TAGS），变更为当前主分支支持所有nginx版本。</p>
 <h2 id="Asynch-Mode-for-NGINX"><a href="#Asynch-Mode-for-NGINX" class="headerlink" title="Asynch Mode for NGINX*"></a>Asynch Mode for NGINX*</h2><p>Intel* <a href="https://01.org/intel-quickassist-technology" target="_blank" rel="noopener">QAT</a> 在Nginx的基础之上添加了基于openssl async job的异步支持，让Nginx有显著的性能提升。但它并不支持所有的nginx功能，目前它支持的功能包括HTTPS（SSL、TLS1、TLS1.2、TLS1.3）、proxy、upstream等；OS包括Linux、FreeBSD。</p>
 <p>它是也会随着Nginx更新而更新，是一个比较活跃的repo。</p>
-<h2 id="Nginx官方网址"><a href="#Nginx官方网址" class="headerlink" title="Nginx官方网址"></a>Nginx官方网址</h2><ul>
-<li><a href="https://nginx.org/" target="_blank" rel="noopener">Nginx</a></li>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><ul>
 <li><a href="https://hg.nginx.org/nginx/" target="_blank" rel="noopener">Nginx source code</a></li>
 <li><a href="https://github.com/nginx/nginx/" target="_blank" rel="noopener">GitHub Mirror for Nginx</a></li>
 <li><a href="https://hg.nginx.org/nginx-tests/" target="_blank" rel="noopener">Test suite for nginx(nginx-tests)</a></li>
@@ -297,7 +302,10 @@
     <a href="/2021/08/30/peripherals/sensor/Sensors_1_intro/" rel="prev" title="常用传感器简介">
       <i class="fa fa-chevron-left"></i> 常用传感器简介
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/28/nginx/nginx_1_compile/" rel="next" title="Nginx编译、调试、运行与测试">
+      Nginx编译、调试、运行与测试 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -356,7 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx简介"><span class="nav-number">1.</span> <span class="nav-text">Nginx简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx测试组件"><span class="nav-number">2.</span> <span class="nav-text">Nginx测试组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asynch-Mode-for-NGINX"><span class="nav-number">3.</span> <span class="nav-text">Asynch Mode for NGINX*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx官方网址"><span class="nav-number">4.</span> <span class="nav-text">Nginx官方网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx简介"><span class="nav-number">1.</span> <span class="nav-text">Nginx简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx测试组件"><span class="nav-number">2.</span> <span class="nav-text">Nginx测试组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asynch-Mode-for-NGINX"><span class="nav-number">3.</span> <span class="nav-text">Asynch Mode for NGINX*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">4.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,20 +380,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

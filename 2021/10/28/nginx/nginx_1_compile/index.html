@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"apexpeng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Nginx简介Nginx目前已经继承到各个Linux发行版中，但各个发行版集成的Nginx不是官方的最新版本。官方的Nginx最新版本会修正已发现的既存代码缺陷（CVE），所以通常我们使用Nginx官方的最新版本的Nginx，这里简单介绍如何通过nginx源码编译与运行。 Nginx环境搭建Nginx支持很多网络功能，这里列出部分必要软件包，以RHEL8（Centos7中需要使用pcre官方源码包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx编译、调试、运行与测试">
+<meta property="og:url" content="https://apexpeng.github.io/2021/10/28/nginx/nginx_1_compile/index.html">
+<meta property="og:site_name" content="Penn&#39;s Blog">
+<meta property="og:description" content="Nginx简介Nginx目前已经继承到各个Linux发行版中，但各个发行版集成的Nginx不是官方的最新版本。官方的Nginx最新版本会修正已发现的既存代码缺陷（CVE），所以通常我们使用Nginx官方的最新版本的Nginx，这里简单介绍如何通过nginx源码编译与运行。 Nginx环境搭建Nginx支持很多网络功能，这里列出部分必要软件包，以RHEL8（Centos7中需要使用pcre官方源码包">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-28T12:07:20.425Z">
+<meta property="article:modified_time" content="2021-09-06T01:50:15.048Z">
+<meta property="article:author" content="Zhang Peng">
+<meta property="article:tag" content="Nginx">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://apexpeng.github.io/2021/10/28/nginx/nginx_1_compile/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Nginx编译、调试、运行与测试 | Penn's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Penn's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Penn's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/nginx/nginx_1_compile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx编译、调试、运行与测试
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-28 20:07:20" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:20+08:00">2021-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-06 09:50:15" itemprop="dateModified" datetime="2021-09-06T09:50:15+08:00">2021-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h1><p>Nginx目前已经继承到各个Linux发行版中，但各个发行版集成的Nginx不是官方的最新版本。官方的Nginx最新版本会修正已发现的既存代码缺陷（CVE），所以通常我们使用Nginx官方的最新版本的Nginx，这里简单介绍如何通过nginx源码编译与运行。</p>
+<h2 id="Nginx环境搭建"><a href="#Nginx环境搭建" class="headerlink" title="Nginx环境搭建"></a>Nginx环境搭建</h2><p>Nginx支持很多网络功能，这里列出部分必要软件包，以RHEL8（Centos7中需要使用pcre官方源码包编译安装，否则会测试失败）为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install libxslt libxslt-devel gd-devel perl pcre-devel GeoIP.x86_64 GeoIP-devel</span><br></pre></td></tr></table></figure>
+<h2 id="Nginx的config选项"><a href="#Nginx的config选项" class="headerlink" title="Nginx的config选项"></a>Nginx的config选项</h2><p><code>--prefix</code>用来指定安装路径，<code>--with-debug</code>用来调试，<code>--with-cc-opt</code>用来添加编译选项，<code>--with-ld-opt</code>用来添加链接选项。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--with-cc-opt&#x3D;&quot;-DNGX_SECURE_MEM -I$OPENSSL_LIB&#x2F;include&quot;</span><br><span class="line">--with-ld-opt&#x3D;&quot;-rpath&#x3D;$OPENSSL_LIB&#x2F;lib -L$OPENSSL_LIB&#x2F;lib -lz&quot;</span><br></pre></td></tr></table></figure>
+<p>openssl在Linux发行版上一般集成的版本都比较低，有一些甚至不到1.1.1。从安全上和功能上考虑，我们一般也使用最新的openssl源码来编译nginx。其中，<code>OPENSSL_LIB</code>为openssl安装路径。由于编译的openssl和系统的openssl版本不一致，而且openssl是Linux发行版的基础核心组件，因此在某些OS上不要在root用户下设定OPENSSL_LIB环境变量，否则系统无法启动（比如CentOS8）。<br>此外，Nginx还支持：</p>
+<ul>
+<li>–sbin-path</li>
+<li>–conf-path</li>
+<li>–error-log-path</li>
+<li>–pid-path</li>
+<li>–with-cc</li>
+<li>…</li>
+</ul>
+<p>同时使用–with-xxx和–without-xxx可以添加和移除模块的支持。</p>
+<h3 id="支持nginx-tests的Nginx配置项"><a href="#支持nginx-tests的Nginx配置项" class="headerlink" title="支持nginx-tests的Nginx配置项"></a>支持nginx-tests的Nginx配置项</h3><p>上述包满足一下nginx module：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">--with-file-aio</span><br><span class="line">--with-http_realip_module</span><br><span class="line">--with-http_addition_module</span><br><span class="line">--with-http_xslt_module</span><br><span class="line">--with-http_image_filter_module</span><br><span class="line">--with-http_geoip_module</span><br><span class="line">--with-http_sub_module</span><br><span class="line">--with-http_dav_module</span><br><span class="line">--with-http_flv_module</span><br><span class="line">--with-http_mp4_module</span><br><span class="line">--with-http_gzip_static_module</span><br><span class="line">--with-http_random_index_module</span><br><span class="line">--with-http_secure_link_module</span><br><span class="line">--with-http_degradation_module</span><br><span class="line">--with-http_stub_status_module</span><br><span class="line">--with-http_perl_module</span><br><span class="line">--with-http_auth_request_module</span><br><span class="line">--with-mail</span><br><span class="line">--with-http_stub_status_module</span><br><span class="line">--with-mail_ssl_module</span><br><span class="line">--with-debug</span><br><span class="line">--with-http_gunzip_module</span><br><span class="line">--with-http_ssl_module</span><br><span class="line">--with-http_v2_module</span><br><span class="line">--with-http_slice_module</span><br><span class="line">--with-stream</span><br><span class="line">--with-stream_ssl_module</span><br><span class="line">--with-stream_ssl_preread_module</span><br></pre></td></tr></table></figure>
+<p>通过这些module，我们可以跑完整的nginx-tests</p>
+<h3 id="具体配置参数含义的查看"><a href="#具体配置参数含义的查看" class="headerlink" title="具体配置参数含义的查看"></a>具体配置参数含义的查看</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --help</span><br></pre></td></tr></table></figure>
+
+<h2 id="Nginx-编译"><a href="#Nginx-编译" class="headerlink" title="Nginx 编译"></a>Nginx 编译</h2><p>配置好之后通过make来编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>编译之后的文件夹结构如下：</p>
+<pre class="mermaid">graph LR
+A(NGINX_INSTALL_DIR)-->B1(conf: 配置文件)
+B1-->C1(nginx.conf)
+B1-->C2(密钥)
+B1-->C3(fastcgi: 与其它功能配置文件)
+A-->B2(html: 网页)
+A-->B3(logs: 存放LOG和pid的地方)
+A-->B4(modules: 可以用来存放第三方模块的地方)
+A-->B5(sbin: 新生成的Nginx可执行文件和之前的可执行文件的备份)
+A-->B6(其它功能)</pre>
+
+<h2 id="Nginx调试技术"><a href="#Nginx调试技术" class="headerlink" title="Nginx调试技术"></a>Nginx调试技术</h2><h3 id="查看Nginx链接库"><a href="#查看Nginx链接库" class="headerlink" title="查看Nginx链接库"></a>查看Nginx链接库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd .&#x2F;sbin&#x2F;nginx</span><br></pre></td></tr></table></figure>
+<p>比如用来查看是否openssl的库链接正确了。</p>
+<h3 id="查看Nginx帮助"><a href="#查看Nginx帮助" class="headerlink" title="查看Nginx帮助"></a>查看Nginx帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;sbin&#x2F;nginx -h</span><br></pre></td></tr></table></figure>
+<p>帮助内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx&#x2F;1.20.1</span><br><span class="line">Usage: nginx [-?hvVtTq] [-s signal] [-p prefix]</span><br><span class="line">             [-e filename] [-c filename] [-g directives]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -?,-h         : this help</span><br><span class="line">  -v            : show version and exit</span><br><span class="line">  -V            : show version and configure options then exit</span><br><span class="line">  -t            : test configuration and exit</span><br><span class="line">  -T            : test configuration, dump it and exit</span><br><span class="line">  -q            : suppress non-error messages during configuration testing</span><br><span class="line">  -s signal     : send signal to a master process: stop, quit, reopen, reload</span><br><span class="line">  -p prefix     : set prefix path (default: &#x2F;opt&#x2F;atf&#x2F;environments&#x2F;server&#x2F;install&#x2F;nginx-qat&#x2F;installFor1.10.3&#x2F;)</span><br><span class="line">  -e filename   : set error log file (default: logs&#x2F;error.log)</span><br><span class="line">  -c filename   : set configuration file (default: conf&#x2F;nginx.conf)</span><br><span class="line">  -g directives : set global directives out of configuration file</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看Nginx编译选项"><a href="#查看Nginx编译选项" class="headerlink" title="查看Nginx编译选项"></a>查看Nginx编译选项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;sbin&#x2F;nginx -V</span><br></pre></td></tr></table></figure>
+<h3 id="Nginx默认编译的模块查看"><a href="#Nginx默认编译的模块查看" class="headerlink" title="Nginx默认编译的模块查看"></a>Nginx默认编译的模块查看</h3><p>在编译生成的objs/ngx_modules.c文件中，ngx_modules[]结构体可以看到所有默认包含的nginx module。按顺序，从上至下上面的模块先生效。</p>
+<h3 id="指定配置文件来运行"><a href="#指定配置文件来运行" class="headerlink" title="指定配置文件来运行"></a>指定配置文件来运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;sbin&#x2F;nginx -c &#x2F;xxx&#x2F;xxxx.conf</span><br></pre></td></tr></table></figure>
+<h3 id="测试配置文件是否有误"><a href="#测试配置文件是否有误" class="headerlink" title="测试配置文件是否有误"></a>测试配置文件是否有误</h3><p>这个命令仅仅测试配置文件，并不运行nginx程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;sbin&#x2F;nginx -t &#x2F;xxx&#x2F;xxxx.conf</span><br></pre></td></tr></table></figure>
+<h3 id="给nginx发送信号"><a href="#给nginx发送信号" class="headerlink" title="给nginx发送信号"></a>给nginx发送信号</h3><ul>
+<li><code>-s stop</code>立即停止nginx</li>
+<li><code>-s reload</code>重启nginx，并重新加载nginx.conf配置文件</li>
+<li><code>-s quit</code>停止nginx，但会把当前的链接处理完</li>
+<li><code>-s reopen</code>重新打开日志文件</li>
+</ul>
+<h3 id="Log"><a href="#Log" class="headerlink" title="Log"></a>Log</h3><p><code>error_log /path/file level;</code> 用于定位BUG。level分为debug、info、notice、warn、error、crit、alert、emerg。Log级别从右到左级别越来越低、输出越来越多。同时使用这个选项需要再configure的时候打开–with-debug。更多介绍参考nginx核心模块 <a href="http://nginx.org/en/docs/ngx_core_module.html#error_log" target="_blank" rel="noopener">error_log</a>部分的详细说明。</p>
+<h3 id="core-dump"><a href="#core-dump" class="headerlink" title="core dump"></a>core dump</h3><p><code>working_directory /path;</code>用于指定coredomp文件存放的位置。</p>
+<h3 id="debug-connection"><a href="#debug-connection" class="headerlink" title="debug_connection"></a>debug_connection</h3><p><code>debug_connection localhost;</code>仅仅<code>localhost</code>的请求才会输出debug级别的日志。</p>
+<h3 id="master-process"><a href="#master-process" class="headerlink" title="master_process"></a>master_process</h3><p><code>master_process off；</code>将不会fork出子进程。</p>
+<h3 id="daemon"><a href="#daemon" class="headerlink" title="daemon"></a>daemon</h3><p><code>daemon off</code>在前端运行，方便调试</p>
+<h1 id="nginx-tests简介"><a href="#nginx-tests简介" class="headerlink" title="nginx-tests简介"></a>nginx-tests简介</h1><p><code>Test suite for nginx</code>也称之为<code>nginx-tests</code>，是用perl开发的基于Test包的Nginx测试组件。每一个测试以.t作为文件后缀名。测试文件举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;perl</span><br><span class="line"></span><br><span class="line"># (C) Sergey Kandaurov</span><br><span class="line"># (C) Nginx, Inc.</span><br><span class="line"></span><br><span class="line"># Test for sub_filter inheritance from http context.</span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line">use warnings;</span><br><span class="line">use strict;</span><br><span class="line"></span><br><span class="line">use Test::More;</span><br><span class="line"></span><br><span class="line">BEGIN &#123; use FindBin; chdir($FindBin::Bin); &#125;</span><br><span class="line"></span><br><span class="line">use lib &#39;lib&#39;;</span><br><span class="line">use Test::Nginx;</span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line">select STDERR; $| &#x3D; 1;</span><br><span class="line">select STDOUT; $| &#x3D; 1;</span><br><span class="line"></span><br><span class="line">my $t &#x3D; Test::Nginx-&gt;new()-&gt;has(qw&#x2F;http sub&#x2F;);</span><br><span class="line"></span><br><span class="line">$t-&gt;plan(1)-&gt;write_file_expand(&#39;nginx.conf&#39;, &lt;&lt;&#39;EOF&#39;);</span><br><span class="line"></span><br><span class="line">%%TEST_GLOBALS%%</span><br><span class="line"></span><br><span class="line">daemon off;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    %%TEST_GLOBALS_HTTP%%</span><br><span class="line"></span><br><span class="line">    sub_filter foo bar;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       127.0.0.1:8080;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        location &#x2F; &#123; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">$t-&gt;write_file(&#39;foo.html&#39;, &#39;foo&#39;);</span><br><span class="line">$t-&gt;run();</span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line">like(http_get(&#39;&#x2F;foo.html&#39;), qr&#x2F;bar&#x2F;, &#39;sub_filter inheritance&#39;);</span><br><span class="line"></span><br><span class="line">###############################################################################</span><br></pre></td></tr></table></figure>
+
+<p>它的组成为：</p>
+<ul>
+<li>版权</li>
+<li>引用测试模块</li>
+<li>生成测试配置文件nginx.conf</li>
+<li>一系列测试命令</li>
+</ul>
+<h2 id="nginx-tests环境搭建"><a href="#nginx-tests环境搭建" class="headerlink" title="nginx-tests环境搭建"></a>nginx-tests环境搭建</h2><p><code>nignx-tests</code>是基于perl的Test模块编写的，因此它的一部分测试用不了系统的自带的软件。比较简单的环境搭建步骤为：</p>
+<h3 id="安装perl包"><a href="#安装perl包" class="headerlink" title="安装perl包"></a>安装perl包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install perl-YAML perl-Term-ReadLine perl-version perl-libs perl-devel perl-Test-* perl-Pod-* perl-ExtUtils-* perl-CGI</span><br></pre></td></tr></table></figure>
+<h3 id="启动cpan并安装包"><a href="#启动cpan并安装包" class="headerlink" title="启动cpan并安装包"></a>启动cpan并安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">perl -MCPAN -e shell</span><br><span class="line">install Net::SSLeay</span><br><span class="line">install IO::Socket::SSL</span><br><span class="line">install IO::Socket::IP</span><br><span class="line">install Cache::Memcached::Fast</span><br></pre></td></tr></table></figure>
+<p>cpan包的缺少是很好判断的，在测试用例失败的输出会告诉我们。以ssl_ocsp.t为例，它会告诉我们<code>Net::SSLeay with OpenSSL SNI support required</code></p>
+<h2 id="跑nginx-tests"><a href="#跑nginx-tests" class="headerlink" title="跑nginx-tests"></a>跑nginx-tests</h2><p>nginx-tests在测试过程中，会在/tmp/下生成一个文件夹用于保存相关的Nginx配置文件、密钥、LOG、测试client的配置文件等。</p>
+<p>在<code>Test suite for nginx</code>的<a href="https://github.com/nginx/nginx-tests/blob/master/README" target="_blank" rel="noopener">README</a>文件中，描述了测试可能用到的环境变量，这里摘录部分常用环境变量：</p>
+<ul>
+<li>TEST_NGINX_BINARY，指定要执行的可执行文件名，</li>
+<li>TEST_NGINX_LEAVE，保留/tmp/文件夹下的测试配置文件</li>
+<li>TEST_NGINX_VERBOSE，测试过程中多输出，需要加<code>prove -v</code>选项</li>
+</ul>
+<p>跑<code>nginx-tests</code>可以直接运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TEST_NGINX_BINARY&#x3D;&#x2F;path&#x2F;to&#x2F;nginx prove .</span><br></pre></td></tr></table></figure>
+<p>其中<code>.</code>可以替换为某一个文件，或者是测试用例所在的文件夹</p>
+<h1 id="Asynch-Mode-for-NGINX-环境搭建"><a href="#Asynch-Mode-for-NGINX-环境搭建" class="headerlink" title="Asynch Mode for NGINX* 环境搭建"></a>Asynch Mode for NGINX* 环境搭建</h1><p><a href="https://github.com/intel/asynch_mode_nginx/tree/master/test/performance_bkm" target="_blank" rel="noopener">NGINX+OPENSSL+QATENGINE+QAT|CORE BENCHMARKING METHODOLOGY</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/nginx/nginx-tests" target="_blank" rel="noopener">https://github.com/nginx/nginx-tests</a><br><a href="https://github.com/nginx/nginx" target="_blank" rel="noopener">https://github.com/nginx/nginx</a><br><a href="https://nginx.org/en/docs/" target="_blank" rel="noopener">https://nginx.org/en/docs/</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/30/nginx/nginx_0_intro/" rel="prev" title="Nginx及与Nginx相关的软件包介绍">
+      <i class="fa fa-chevron-left"></i> Nginx及与Nginx相关的软件包介绍
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/28/nginx/nginx_2_directive/" rel="next" title="Nginx配置文件与功能简述">
+      Nginx配置文件与功能简述 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx简介"><span class="nav-number">1.</span> <span class="nav-text">Nginx简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx环境搭建"><span class="nav-number">1.1.</span> <span class="nav-text">Nginx环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx的config选项"><span class="nav-number">1.2.</span> <span class="nav-text">Nginx的config选项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持nginx-tests的Nginx配置项"><span class="nav-number">1.2.1.</span> <span class="nav-text">支持nginx-tests的Nginx配置项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体配置参数含义的查看"><span class="nav-number">1.2.2.</span> <span class="nav-text">具体配置参数含义的查看</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx-编译"><span class="nav-number">1.3.</span> <span class="nav-text">Nginx 编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx调试技术"><span class="nav-number">1.4.</span> <span class="nav-text">Nginx调试技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Nginx链接库"><span class="nav-number">1.4.1.</span> <span class="nav-text">查看Nginx链接库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Nginx帮助"><span class="nav-number">1.4.2.</span> <span class="nav-text">查看Nginx帮助</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Nginx编译选项"><span class="nav-number">1.4.3.</span> <span class="nav-text">查看Nginx编译选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx默认编译的模块查看"><span class="nav-number">1.4.4.</span> <span class="nav-text">Nginx默认编译的模块查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定配置文件来运行"><span class="nav-number">1.4.5.</span> <span class="nav-text">指定配置文件来运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试配置文件是否有误"><span class="nav-number">1.4.6.</span> <span class="nav-text">测试配置文件是否有误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给nginx发送信号"><span class="nav-number">1.4.7.</span> <span class="nav-text">给nginx发送信号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log"><span class="nav-number">1.4.8.</span> <span class="nav-text">Log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#core-dump"><span class="nav-number">1.4.9.</span> <span class="nav-text">core dump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#debug-connection"><span class="nav-number">1.4.10.</span> <span class="nav-text">debug_connection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#master-process"><span class="nav-number">1.4.11.</span> <span class="nav-text">master_process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#daemon"><span class="nav-number">1.4.12.</span> <span class="nav-text">daemon</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx-tests简介"><span class="nav-number">2.</span> <span class="nav-text">nginx-tests简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-tests环境搭建"><span class="nav-number">2.1.</span> <span class="nav-text">nginx-tests环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装perl包"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装perl包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动cpan并安装包"><span class="nav-number">2.1.2.</span> <span class="nav-text">启动cpan并安装包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跑nginx-tests"><span class="nav-number">2.2.</span> <span class="nav-text">跑nginx-tests</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Asynch-Mode-for-NGINX-环境搭建"><span class="nav-number">3.</span> <span class="nav-text">Asynch Mode for NGINX* 环境搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zhang Peng"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Zhang Peng</p>
+  <div class="site-description" itemprop="description">Our life is shaped by our mind; we become what we think.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/apexpeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;apexpeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangpengme@outlook.com" title="E-Mail → mailto:zhangpengme@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="skype:zhangpengme_2?call|chat" title="Skype → skype:zhangpengme_2?call|chat" rel="noopener" target="_blank"><i class="fab fa-skype fa-fw"></i>Skype</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhang Peng</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

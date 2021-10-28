@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"apexpeng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1 Calgary CorpusThe Calgary Corpus is the most referenced corpus in the data compression field exspecially for text compression and is the de facto standard for lossless compression evaluation.The cor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解压缩Benchmark简介">
+<meta property="og:url" content="https://apexpeng.github.io/2021/10/28/compress/Benchmark/index.html">
+<meta property="og:site_name" content="Penn&#39;s Blog">
+<meta property="og:description" content="1 Calgary CorpusThe Calgary Corpus is the most referenced corpus in the data compression field exspecially for text compression and is the de facto standard for lossless compression evaluation.The cor">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-28T12:07:55.126Z">
+<meta property="article:modified_time" content="2021-10-28T12:47:31.047Z">
+<meta property="article:author" content="Zhang Peng">
+<meta property="article:tag" content="compress">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://apexpeng.github.io/2021/10/28/compress/Benchmark/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>解压缩Benchmark简介 | Penn's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Penn's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Penn's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://apexpeng.github.io/2021/10/28/compress/Benchmark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zhang Peng">
+      <meta itemprop="description" content="Our life is shaped by our mind; we become what we think.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penn's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          解压缩Benchmark简介
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-28 20:07:55 / Modified: 20:47:31" itemprop="dateCreated datePublished" datetime="2021-10-28T20:07:55+08:00">2021-10-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/compress/" itemprop="url" rel="index"><span itemprop="name">compress</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>1 Calgary Corpus<br>The Calgary Corpus is the most referenced corpus in the data compression field exspecially for text compression and is the de facto standard for lossless compression evaluation.<br>The corpus was founded in 1987 by Ian Witten, Timothy Bell and John Cleary for their research paper “MODELING FOR TEXT COMPRESSION” at the University of Calgary, Canada. The research paper was published in 1989 at ACM Computing Surveys. In 1990 the corpus was used in their book “Text compression”.<br>The corpus consists of 18 files (Large Calgary Corpus: bib, book1, book2, geo, news, obj1, obj2, paper1, paper2, paper3, paper4, paper5, paper6, pic, progc, progl, progp and trans), but only 14 files were used in the paper and book (Standard Calgary Corpus: all files except paper3, paper4, paper5 and paper6).<br>The corpus is available below and at <a href="ftp://ftp.cpsc.ucalgary.ca/pub/projects/text.compression.corpus">ftp://ftp.cpsc.ucalgary.ca/pub/projects/text.compression.corpus</a>.</p>
+<p>The contexts of the readme-file of the Calgary Corpus is listed below:</p>
+<p>Welcome to the Calgary/Canterbury text compression corpus. This corpus is used in the book</p>
+<p>  Bell, T.C., Cleary, J.G. and Witten, I.H. Text compression.<br>  Prentice Hall, Englewood Cliffs, NJ, 1990</p>
+<p>and in the survey paper</p>
+<p>  Bell, T.C., Witten, I.H. and Cleary, J.G. “Modeling for text<br>  compression,” Computing Surveys 21(4): 557-591; December 1989,</p>
+<p>to evaluate the practical performance of various text compression schemes. Several other researchers are now using the corpus to evaluate text compression schemes.<br>Nine different types of text are represented, and to confirm that the performance of schemes is consistent for any given type, many of the types have more than one representative.  Normal English, both fiction and non-fiction, is represented by two books and papers (labeled book1, book2, paper1, paper2, paper3, paper4, paper5, paper6).  More unusual styles of English writing are found in a bibliography (bib) and a batch of unedited news articles (news). Three computer programs represent artificial languages (progc, progl, progp). A transcript of a terminal session (trans) is included to indicate the increase in speed that could be achieved by applying compression to a slow line to a terminal.  All of the files mentioned so far use ASCII encoding. Some non-ASCII files are also included: two files of executable code (obj1, obj2), some geophysical data (geo), and a bit-map black and white picture (pic).  The file geo is particularly difficult to compress because it contains a wide range of data values, while the file pic is highly compressible because of large amounts of white space in the picture, represented by long runs of zeros.<br>More details of the individual texts are given in the book mentioned above. Both book and paper give the results of compression experiments on these texts.<br>The corpus itself constitutes files bib, book1, book2, geo, news, obj1, obj2, paper1, paper2, paper3, paper4, paper5, paper6, pic, progc, progl, progp and trans.  (The book and paper above do not give results for files paper3, paper4, paper5 or paper6.)<br>The directory “index” contains the sizes of the files and some information about where they came from.</p>
+<p>largecalgarycorpus.zip<br>calgarycorpus.zip</p>
+<p>2 Silesia Corpus<br>Silesia compression corpus</p>
+<p>Standard lossless data compression corpora<br>Three well-known data sets are used by researchers in the universal lossless data compression field. The first one, the Calgary corpus, was introduced in 1989 by Bell et al.. The files in the corpus were chosen to cover up the typical types of data used in computer processing. This corpus is rather old, and it contains some types of data which went out of use, but the corpus is still a good benchmark used by many authors. The corpora proposed later, the Canterbury corpus and the large Canterbury corpus, contain files of similar sizes, less than 5 MB.</p>
+<p>Over the years of using of these corpora some observations have proven their important disadvantages. The most important in our opinion are:</p>
+<p>the lack of large files—at present we work with much larger files;<br>an over-representation of English-language texts—there are only English<br>files in the three corpora, while in practice many texts are written in different languages;<br>the lack of files being a concatenation of large projects<br>(e.g., programming projects)—the application sizes grow quite fast and compressing each of the source files separately is impractical presently; a more convenient way is to concatenate the whole project and to compress the resulting file;<br>absence of medical images—the medical images must not undergo a lossy compression because of law regulations;<br>the lack of databases that currently grow considerably fast—databases are perhaps the fastest growing type of data.</p>
+<p>Silesia corpus<br>The intention of the Silesia corpus is to provide a data set of files that covers the typical data types used nowadays. The sizes of the files are between 6 MB and 51 MB.</p>
+<p>The chosen files are of different types and come from several sources. In our opinion, nowadays the two fastest growing types of data are multimedia and databases. The former are typically compressed with lossy methods so we do not include them in the corpus. The database files, osdb, sao, nci, come from three different fields. The first one is a sample database from an open source project that is intended to be used as a standard, free database benchmark. The second one, sao, is one of the astronomical star catalogues. This is a binary database composed of records of complex structure. The last one, nci, is a part of the chemical database of structures.</p>
+<p>The sizes of computer programs are also growing rapidly. The standard corpora include only single, small routines, both in source and object code. Today it is almost impractical to compress every single source code file separately. The projects are composed of hundreds or thousands files, so it is a common habit to compress it all together. We often can achieve a better compression ratio if we compress a concatenated file of similar contents than the small separate ones. This trend is reflected in including a samba file. Besides the source codes, there is also a need to store the executables. We decided to include two files: ooffice and mozilla. The first one is a single medium-sized executable for the Windows system. The second is a concatenation of the whole application for Tru64 Unix system composed of executables, archives, texts, HTML files, and other.</p>
+<p>There are also types of images that cannot be compressed loosely—the medical images. The sizes of such files are also huge and we include two examples of them in the corpus. The first file, x-ray, is an X-ray picture of a child’s hand. The second file, mr, is a magnetic resonance, three dimensional image of a head.</p>
+<p>The standard corpora contain text files. Moreover, these files are typically the largest files of them, but in our opinion there is a need to test the compression efficiency also on the larger ones stored in different file types. We propose three such files. The first, dickens, is a collection of some works by Charles Dickens that can be found in the Project Gutenberg. This is a plain text file. The second one, reymont, is a book Ch�opi by W�adys�aw Reymont stored in a PDF file. The PDF files can be internally-compressed but the quality of this build-in compression is rather poor, and much better results can be obtained when we compress an uncompressed PDF file. Because of this we enclose the uncompressed version. The last text file, webster, is an electronic version of The 1913 Webster Unabridged Dictionary taken from the Project Gutenberg. The file is stored in the HTML format. The last file of the new corpus, xml, is a concatenation of 21 XML files. The XML standard is designed to be a universal file format for storing documents, so we decided to enclose it.</p>
+<p>Silesia Corpus contents<br>Filename    Description    Type    Source    Raw size [B]    Bzipped size [B]<br>dickens    Collected works of Charles Dickens    English text    Project Gutenberg    10,192,446    2,799,528<br>mozilla    Tarred executables of Mozilla 1.0 (Tru64 UNIX edition)    exe    Mozilla Project    51,220,480    17,914,392<br>mr    Medical magnetic resonanse image    picture    Hospital image    9,970,564    2,441,280<br>nci    Chemical database of structures    database    CACTVS Chemical Information Services at LMC/NCI    33,553,445    1,812,734<br>ooffice    A dll from Open Office.org 1.01    exe    Open Office    6,152,192    2,862,526<br>osdb    Sample database in MySQL format from Open Source Database Benchmark    database    Open Source Database Benchmark Project    10,085,684    2,802,792<br>reymont    Text of the book Ch�opi by W�adys�aw Reymont    Polish pdf    Virtual Library of Polish Literature    6,627,202    1,246,230<br>samba    Tarred source code of Samba 2-2.3    src    Samba Project    21,606,400    4,549,790<br>sao    The SAO star catalog    bin data    Astronomical Catalogs and Catalog Formats    7,251,944    4,940,524<br>webster    The 1913 Webster Unabridged Dictionary    html    Project Gutenberg    41,458,703    8,644,714<br>xml    Collected XML files    html    XMLPPM: XML-Conscious PPM Compression    5,345,280    441,186<br>x-ray    X-ray medical picture<br>Hospital image    8,474,240    4,051,112<br>Total</p>
+<p>211,938,580    54,506,808<br>Silesia Corpus details<br>dickens<br>Charles Dickens wrote many novels. The file is a concatenation of some, fourteen, of his works that can be found in the Project Gutenberg (A Child’s History Of England, All The Year Round: Contributions, American Notes, The Battle Of Life, Bleak House, A Christmas Carol, David Copperfield, Dombey And Son, Doctor Marigold, Going Into Society, George Silverman’s Explanation, Barnaby Rudge: a tale of the Riots of ‘eighty, The Chimes, The Cricket On The Hearth). The file is a simple text.</p>
+<p>MD5: 88334708559f6db57d79096bc0aca07e</p>
+<p>mozilla<br>A Mozilla 1.0 open source web browser was installed on the Tru64 UNIX operating system and then the contents of the Mozilla.org directory were tarred. There are 525 files of such types as: executables, jar archives, HTML, XML, text, and others.</p>
+<p>MD5: c7789a2097f1ff944b0c737430a339b3</p>
+<p>mr<br>A magnetic resonanse medical picture of a head. This file is stored is DICOM format and contains 19 planes.</p>
+<p>MD5: 38e623e3093b7bf2003ca4b1bbc19927</p>
+<p>nci<br>The chemical databases of strucures contain information of structures, their components, 2D and/or 3D coordinates, properites, etc. The file is a part of the August 2000 2D File stored in an SDF format which is common file format developped to handle a list of molecular structures associated with properties. The original database is of size 982MB so we had to truncate it to be suitable for a part of the corpus. The 32MB piece (rounded down to the nearest end of the record), we have chosen, is taken from the middle of the original file (starting at the first record after leaving 400MB of data).</p>
+<p>MD5: 31f85bc8706f3c921104e7c169e2e2e1</p>
+<p>ooffice<br>An Open Office is an open source project, which is composed of the word processor, spreadsheet program, presentation maker, and graphical program. The file is a dynamic linked linbrary from version 1.01.</p>
+<p>MD5: 573c4ae915e36631d8f2dcffb9b9b66d</p>
+<p>osdb<br>An Open Source Database Benchmark is a project invented to provide a free test for database systems. One of the parts of the project are sample databases. The 40MB benchmark was run on the MySQL 3.23 server. The file is one of the MySQL database files, hundred.med.</p>
+<p>MD5: e734b0c48e6a982adfb5802da3032ecd</p>
+<p>reymont<br>A book Ch�opi by W�adys�aw Reymont was honoured the Nobel Price in 1924. The text of the book was taken from the Virtual Library of Polish Literature. Then it was converted to the LaTeX files from which the uncompressed PDF file was produced. The file is uncompressed due to the fact the built-in compression in PDF format is rather poor, and much better results can be obtained when we compress the uncompressed PDF files.</p>
+<p>MD5: d8f54d78105079775f32d76dc55fc671</p>
+<p>samba<br>Samba is an open souce project that is intended to be a free alternative to the SMB/CIFS clients. The file contains tarred source code (also documentation, graphics) of the Samba 2.2-3 version.</p>
+<p>MD5: 154eaea7ea70e89f6339ff0abf4112ca</p>
+<p>sao<br>There are many star catalogs containing the data of sky objects. The chosen one, SAO catalog, is suitable especially for the amator astronomers. It contains the information about 258,996 stars, and is composed of binary records.</p>
+<p>MD5: 79e95a22e18cd82b7e42bf91b380d30b</p>
+<p>webster<br>The 1913 Webster Unabridged Dictionary is an English dictionary stored in a rather simple HTML. The file is a concatenation of files that can be obtained from Project Gutenberg.</p>
+<p>MD5: 474931ad907ac27bf962c75ded46c069</p>
+<p>xml<br>The XML is an incomming standard of document format. The importance of XML is still growing. The file is a corpus prepared for XMLPPM: XML-Conscious PPM Compression. This is a concatenation of all, eleven, files.</p>
+<p>MD5: 9b09c0c80104adb8aae910b7d7db003e</p>
+<p>x-ray<br>An X-ray medical picture of child’s hand. This is a 12-bit gray scaled image.</p>
+<p>MD5: 9baec32ad14ec3eff487d254382cb91c</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/compress/" rel="tag"># compress</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/28/http/E0_http_protol/" rel="prev" title="http/E0_http_protol">
+      <i class="fa fa-chevron-left"></i> http/E0_http_protol
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/28/compress/E0_compression/" rel="next" title="解压缩算法简介">
+      解压缩算法简介 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zhang Peng"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Zhang Peng</p>
+  <div class="site-description" itemprop="description">Our life is shaped by our mind; we become what we think.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/apexpeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;apexpeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangpengme@outlook.com" title="E-Mail → mailto:zhangpengme@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="skype:zhangpengme_2?call|chat" title="Skype → skype:zhangpengme_2?call|chat" rel="noopener" target="_blank"><i class="fab fa-skype fa-fw"></i>Skype</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhang Peng</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
